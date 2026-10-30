@@ -1287,20 +1287,15 @@
 
   // Scroll Reveal Observer
   // DYNAMIC SCROLL TRANSITIONS: Spinning Dishes, Shaking Drinks & Pizzas Sliding in From Left with Slow Smooth Spin
+  // Precise Scroll-Triggered Entrance Transitions per Section
   function observeScrollAnimations() {
-    const targets = document.querySelectorAll(
-      "section[id^='sec-'], .jimbo-hero-section, .pizza-col-panel, " +
-      ".bites-card, .soup-card, .special-plate-col, .platter-card, " +
-      ".chips-meats-card, .salad-plate-col, .standalone-plate-col, " +
-      ".pasta-plate-col, .dessert-card, .jimbo-card, " +
-      ".coffee-card, .cold-drink-bites-card, .tea-jimbo-card, " +
-      ".juice-col-panel, .milkshake-card, .smoothie-cups-cluster-wrap, " +
-      ".dyn-section, .reveal-on-scroll"
+    const sections = document.querySelectorAll(
+      "section[id^='sec-'], .jimbo-hero-section, .dyn-section"
     );
 
     if (!("IntersectionObserver" in window)) {
-      targets.forEach((el) => {
-        el.classList.add("is-revealed", "is-visible");
+      sections.forEach((sec) => {
+        sec.classList.add("is-revealed", "is-visible", "anim-settled");
       });
       return;
     }
@@ -1309,23 +1304,34 @@
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            entry.target.classList.add("is-revealed", "is-visible");
-            observer.unobserve(entry.target);
+            const sec = entry.target;
+            sec.classList.add("is-revealed", "is-visible");
+            // Mark all cards/panels inside this specific section
+            sec.querySelectorAll(
+              ".pizza-col-panel, .bites-card, .soup-card, .special-plate-col, " +
+              ".platter-card, .chips-meats-card, .salad-plate-col, .standalone-plate-col, " +
+              ".pasta-plate-col, .dessert-card, .jimbo-card, .coffee-card, " +
+              ".cold-drink-bites-card, .tea-jimbo-card, .juice-col-panel, " +
+              ".milkshake-card, .smoothie-cups-cluster-wrap"
+            ).forEach((child) => {
+              child.classList.add("is-revealed", "is-visible");
+            });
+
+            observer.unobserve(sec);
+
+            setTimeout(() => {
+              sec.classList.add("anim-settled");
+            }, 1800);
           }
         });
       },
       {
-        threshold: 0.12,
-        rootMargin: "0px 0px -30px 0px"
+        threshold: 0.08,
+        rootMargin: "0px 0px -40px 0px"
       }
     );
 
-    targets.forEach((el) => observer.observe(el));
-
-    // Fallback: ensure all elements are visible after 3.5s in case of edge conditions
-    setTimeout(() => {
-      targets.forEach((el) => el.classList.add("is-revealed", "is-visible"));
-    }, 3500);
+    sections.forEach((sec) => observer.observe(sec));
   }
 
   // Open Dish Modal

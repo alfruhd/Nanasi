@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>Nanasi Admin</title>
+  <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+  <div id="setupNotice" class="center-card" hidden>
+    <h1>Firebase not configured</h1>
+    <p>Fill in <code>firebase-config.js</code> (see <code>ADMIN_SETUP.md</code>) and reload.</p>
+  </div>
+
+  <form id="loginView" class="center-card" hidden>
+    <h1>Nanasi Admin</h1>
+    <input id="email" type="email" placeholder="Admin email" required autocomplete="username">
+    <input id="password" type="password" placeholder="Password" required autocomplete="current-password">
+    <button class="btn primary" type="submit">Sign in</button>
+    <p id="loginErr" class="err"></p>
+    <a href="index.html" class="link">← Back to menu</a>
+  </form>
+
+  <div id="editorView" hidden>
+    <header class="bar">
+      <strong>Nanasi Menu Editor</strong>
+      <span id="who" class="muted"></span>
+      <span class="spacer"></span>
+      <span id="status" class="muted"></span>
+      <a class="btn" href="index.html" target="_blank">View site</a>
+      <button class="btn" id="resetBtn">Reset to defaults</button>
+      <button class="btn primary" id="saveBtn">Save &amp; publish</button>
+      <button class="btn" id="logoutBtn">Sign out</button>
+    </header>
+    <div class="layout">
+      <nav id="sectionList"></nav>
+      <main id="sectionEditor"></main>
+    </div>
+  </div>
+
+  <script src="menu-data.js"></script>
+  <script src="firebase-config.js"></script>
+  <script src="admin.js"></script>
+</body>
+</html>
