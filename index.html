@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NANASI CAFE — BITE . SIP . SMILE | Official Digital Menu</title>
+  <meta name="description" content="Official Digital Menu of NANASI CAFE (BITE . SIP . SMILE) at Survey Complex, University Road, Dar es Salaam. Built in Nanasi Deep Green, Gold, Brown & Cream." />
+  <meta name="theme-color" content="#0F3D2E" />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Almendra:ital,wght@0,700;1,700&family=Bebas+Neue&family=Cormorant+Garamond:ital,wght@1,700&family=Dancing+Script:wght@700&family=MedievalSharp&family=Pirata+One&family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- ================= TOP NAVIGATION BAR (FIXED & TRANSLUCENT NEAR TRANSPARENT) ================= -->
+  <header class="topbar-wrapper" id="siteTopbar">
+    <nav class="topbar-inner" aria-label="Top Navigation">
+      <a href="#hero" class="topbar-brand" title="Nanasi Bakery & Cafe">
+        <div class="hero-brand-combo">
+          <svg class="nanasi-navbar-logo" viewBox="0 0 120 150" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="Nanasi Logo">
+            <path d="M60 8 C56 26, 51 35, 46 42 C36 33, 22 33, 12 37 C28 43, 39 50, 44 58" stroke="#F7EFE4" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M60 8 C64 26, 69 35, 74 42 C84 33, 98 33, 108 37 C92 43, 81 50, 76 58" stroke="#F7EFE4" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M60 8 L60 46" stroke="#E5BA58" stroke-width="4" stroke-linecap="round"/>
+            <ellipse cx="60" cy="96" rx="34" ry="44" stroke="#F7EFE4" stroke-width="4.5"/>
+            <path d="M64 53 C49 74, 71 116, 55 139" stroke="#E5BA58" stroke-width="4.5" stroke-linecap="round"/>
+          </svg>
+          <div class="hero-brand-names">
+            <div class="hero-brand-title">NANASI</div>
+            <div class="hero-brand-bracket">
+              <span class="bracket-text">CAFE</span>
+            </div>
+            <div class="hero-brand-slogan">BITE &bull; SIP &bull; SMILE</div>
+          </div>
+        </div>
+      </a>
+
+      <!-- Minimalist Category Navigation (Centered, Max 5 Main Items + All Dropdown) -->
+      <div class="topbar-center-nav" id="topbarCenterNav">
+        <div class="category-nav-track" id="categoryNavTrack">
+          <a href="#hero" class="cat-nav-link active" data-section="hero">Home</a>
+          <a href="#sec-nanasi-special-breakfast" class="cat-nav-link" data-section="sec-nanasi-special-breakfast">Breakfast</a>
+          <a href="#sec-chips-and-meats" class="cat-nav-link" data-section="sec-chips-and-meats">Dishes</a>
+          <a href="#sec-pizza-large" class="cat-nav-link" data-section="sec-pizza-large">Pizza</a>
+          <a href="#sec-fresh-juice" class="cat-nav-link" data-section="sec-fresh-juice">Drinks</a>
+        </div>
+
+        <!-- Quick All 16 Dropdown Pill -->
+        <button type="button" class="cat-all-btn" id="catAllBtn" aria-label="Explore all 16 categories" aria-expanded="false">
+          <span>All (16)</span>
+          <svg class="cat-all-chevron" width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><path d="M7 10l5 5 5-5z"/></svg>
+        </button>
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="topbar-actions">
+        <button type="button" class="hero-nav-btn open-qr-btn" title="View Table QR Code">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" style="vertical-align:-2px;margin-right:5px;"><path d="M3 3h8v8H3V3zm2 2v4h4V5H5zm8-2h8v8h-8V3zm2 2v4h4V5h-4zM3 13h8v8H3v-8zm2 2v4h4v-4H5zm13-2h3v2h-3v-2zm-5 5h2v3h-2v-3zm5 0h3v3h-3v-3zm-2-3h2v2h-2v-2zm-3-2h2v2h-2v-2zm5 5h3v2h-3v-2z"/></svg>
+          Table QR
+        </button>
+        <a href="https://wa.me/255700000000?text=Hello%20NANASI%20CAFE!%20I%20would%20like%20to%20order." target="_blank" rel="noopener" class="hero-nav-btn gold">
+          Order Now
+        </a>
+      </div>
+
+      <!-- Minimalist Translucent Dropdown Menu for all 16 sections -->
+      <div class="cat-dropdown" id="catDropdown" role="menu">
+        <div class="cat-dropdown-grid">
+          <div>
+            <div class="cat-group-title">Morning &amp; Bites</div>
+            <div class="cat-group-list">
+              <a href="#sec-bites" class="cat-drop-link" role="menuitem">• Bites &amp; Bakery</a>
+              <a href="#sec-soup" class="cat-drop-link" role="menuitem">• Nourishing Soups</a>
+              <a href="#sec-nanasi-special-breakfast" class="cat-drop-link" role="menuitem">• Breakfast Specials</a>
+              <a href="#sec-platters" class="cat-drop-link" role="menuitem">• Sharing Platters</a>
+            </div>
+          </div>
+          <div>
+            <div class="cat-group-title">Main Dishes &amp; Sides</div>
+            <div class="cat-group-list">
+              <a href="#sec-chips-and-meats" class="cat-drop-link" role="menuitem">• Chips &amp; Grilled Meats</a>
+              <a href="#sec-salad" class="cat-drop-link" role="menuitem">• Fresh Bowls &amp; Nachos</a>
+              <a href="#sec-standalone-sides" class="cat-drop-link" role="menuitem">• Standalone Sides &amp; Portion</a>
+              <a href="#sec-pizza-large" class="cat-drop-link" role="menuitem">• Handcrafted Large Pizza</a>
+              <a href="#sec-pasta" class="cat-drop-link" role="menuitem">• Italian Pastas</a>
+              <a href="#sec-desserts" class="cat-drop-link" role="menuitem">• Sweet Desserts</a>
+            </div>
+          </div>
+          <div>
+            <div class="cat-group-title">Drinks &amp; Refreshments</div>
+            <div class="cat-group-list">
+              <a href="#sec-tea-botanicals" class="cat-drop-link" role="menuitem">• Tea &amp; Botanicals</a>
+              <a href="#sec-cafe-coffee" class="cat-drop-link" role="menuitem">• Café Roasted Coffee</a>
+              <a href="#sec-nanasi-cold-special" class="cat-drop-link" role="menuitem">• Cold Specials &amp; Sodas</a>
+              <a href="#sec-fresh-juice" class="cat-drop-link" role="menuitem">• 100% Fresh Juices</a>
+              <a href="#sec-milkshake" class="cat-drop-link" role="menuitem">• Gourmet Milkshakes</a>
+              <a href="#sec-smoothie" class="cat-drop-link" role="menuitem">• Tropical Smoothies</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!-- ================= HERO SHOWCASE (INSPIRED BY REFERENCE LAYOUT IN ATTACHMENT) ================= -->
+  <header class="hero-showcase" id="hero">
+    <!-- Ambient Lighting Highlight (Flows seamlessly with below sections) -->
+    <div class="hero-ambient-spot"></div>
+
+    <div class="hero-inner-container">
+      <!-- 2. Hero Main Grid: Left Big Ceramic Dish, Right Headline & Copy (Like Reference Attachment) -->
+      <div class="hero-main-grid">
+        <!-- Left Column: Plate Sitting on Forest Green Organic Shape (Like Attachment Reference) -->
+        <div class="hero-left-dish-stage">
+          <div class="hero-plate-wrapper" id="heroPlateWrapper" role="button" tabindex="0" title="Click plate to switch special (1 of 3)" aria-label="Switch breakfast special">
+            <!-- Nanasi Forest Green Custom Shape Badge (From User Attachment) -->
+            <img
+              src="assets/brand/nanasi_hero_shape_badge.png"
+              alt=""
+              class="hero-dish-blob-backdrop"
+              aria-hidden="true"
+            />
+
+            <!-- The User's Attached Plate (Dual-Layer Cinema Crossfade & Slow-Motion Spin) -->
+            <div class="hero-plate-rotator" id="heroPlateRotator">
+              <div class="hero-plate-spinner">
+                <img
+                  id="heroPlateImgA"
+                  src="assets/dishes/swahili_breakfast_black_plate.png"
+                  alt="Nanasi Cafe Authentic Swahili Breakfast Feast"
+                  class="hero-plate-img active"
+                />
+                <img
+                  id="heroPlateImgB"
+                  src="assets/dishes/special_english_breakfast.png"
+                  alt="Nanasi Cafe Breakfast Special"
+                  class="hero-plate-img"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Column: Bold Typography & Action Button -->
+        <div class="hero-right-content">
+          <div class="hero-script-tag" id="heroScriptTag">Chef&rsquo;s Special</div>
+
+          <h1 class="hero-headline hero-text-anim" id="heroHeadline">
+            <span class="headline-white" id="heroHeadlineWhite">SWAHILI FEAST</span>
+            <span class="headline-accent" id="heroHeadlineAccent">&amp; BREAKFAST</span>
+          </h1>
+
+          <p class="hero-subtitle hero-text-anim" id="heroSubtitle">
+            Authentic East African morning indulgence &mdash; hand-rolled chapati triangles, creamy coconut maharage, savory grilled sausages, and fresh tropical pineapple, mango &amp; watermelon.
+          </p>
+
+          <div class="hero-actions-row">
+            <a id="heroOrderBtn" href="https://wa.me/255700000000?text=Hello%20NANASI%20CAFE!%20I%20would%20like%20to%20order%20the%20Swahili%20Breakfast%20(TSH%2012,000)." target="_blank" rel="noopener" class="btn-hero-action">
+              ORDER NOW
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+  <!-- ================= DYNAMIC MULTI-ARCHETYPE MENU STREAM ================= -->
+  <main class="dynamic-menu-stream">
+    <!-- All 16 Sections Dynamically Rendered Across the Reference Poster Archetypes -->
+    <div id="menuContainer"></div>
+  </main>
+
+
+
+  <!-- ================= DISH PHOTO & ORDER MODAL ================= -->
+  <div id="dishModal" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="modalDishName">
+    <div class="modal-card">
+      <button type="button" class="modal-close" aria-label="Close">✕</button>
+      <div class="modal-img-wrap">
+        <img id="modalDishImg" class="modal-img" src="" alt="" />
+      </div>
+      <div class="modal-body">
+        <div id="modalDishCat" class="modal-cat-tag">CATEGORY</div>
+        <div class="modal-title-row">
+          <div id="modalDishName" class="modal-title">Dish Name</div>
+          <span id="modalDishPrice" class="modal-price">TSH 0</span>
+        </div>
+        <p id="modalDishDesc" class="modal-desc"></p>
+        <a id="modalOrderBtn" href="#" target="_blank" rel="noopener" class="btn-order-whatsapp">
+          💬 ORDER NOW ON WHATSAPP
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= SCANNABLE QR CODE MODAL ================= -->
+  <div id="qrModal" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="qrModalTitle">
+    <div class="modal-card">
+      <button type="button" class="modal-close" aria-label="Close">✕</button>
+
+      <!-- Top Visual Stage: QR Code Card -->
+      <div class="qr-stage-wrap">
+        <div class="qr-card-frame">
+          <div class="qr-brand-name">NANASI CAFE</div>
+          <div class="qr-brand-slogan">BITE &bull; SIP &bull; SMILE</div>
+          <div class="qr-white-box">
+            <img id="qrImage" src="" alt="Nanasi Cafe Digital Menu QR Code" />
+          </div>
+          <div id="qrUrlText" class="qr-url-text">nanasicafe.co.tz/menu</div>
+          <div class="qr-sub-text">Survey Complex, University Road &bull; Dar es Salaam</div>
+        </div>
+      </div>
+
+      <!-- Bottom Frosted Translucent Glass Body (Matches Dish Modal) -->
+      <div class="modal-body">
+        <div class="modal-cat-tag">TABLE &amp; SHAREABLE QR CODE</div>
+        <div class="modal-title-row" style="margin-bottom: 4px;">
+          <h2 id="qrModalTitle" class="modal-title" style="margin: 0; font-size: 2.1rem;">
+            SCAN FOR OUR ONLINE MENU
+          </h2>
+        </div>
+        <p class="modal-desc" style="margin-bottom: 16px;">
+          Scan with any smartphone camera to open our live interactive menu, or copy the direct link to share with table guests.
+        </p>
+
+        <div class="qr-actions-row">
+          <button type="button" id="copyLinkBtn" class="btn-qr-action dark">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+            <span class="btn-label">COPY LINK</span>
+          </button>
+          <button type="button" onclick="window.print()" class="btn-qr-action gold">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>
+            <span class="btn-label">PRINT QR CARD</span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="menu-data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
