@@ -48,7 +48,7 @@
           <div class="jimbo-tile ${variant}" data-spot-sec="${sp.secId}" data-spot-item="${sp.id}">
             <div class="jimbo-title">${sp.title}</div>
             <div class="jimbo-bowl-wrap">
-              <img class="jimbo-bowl-img" src="${sp.image}" alt="${sp.title}" loading="lazy" decoding="async" />
+              <img class="jimbo-bowl-img" src="${sp.image}" alt="${sp.title}" loading="lazy" />
             </div>
             <span class="jimbo-price">TSH ${formatPrice(sp.price)}</span>
           </div>
@@ -317,7 +317,7 @@
 
                   <!-- Left Ceramic Dish Plate (Partially Cropped & Overflowing on Left Rim with Realistic Shadows) -->
                   <div class="bites-plate-wrapper">
-                    <img src="${item.image}" alt="${item.name}" class="bites-dish-img" loading="lazy" decoding="async" />
+                    <img src="${item.image}" alt="${item.name}" class="bites-dish-img" loading="lazy" />
                   </div>
 
                   <!-- Right Info Section: Stacked Bold Uppercase Title, Flavor Descriptors, Bold Price -->
@@ -369,7 +369,7 @@
                 <article class="coffee-card ${rowClass} coffee-card-${idx}" data-item-id="${item.id}" data-sec-id="${sec.id}">
                   <!-- Stage with Coffee Cup & Overlapping Circular Orange Price Badge -->
                   <div class="coffee-cup-stage">
-                    <img src="${item.image}" alt="${item.name}" class="coffee-cup-img" loading="lazy" decoding="async" />
+                    <img src="${item.image}" alt="${item.name}" class="coffee-cup-img" loading="lazy" />
                     <!-- Overlapping Circular Price Badge matching SALAD / Nanasi Special -->
                     <div class="special-orange-price-badge coffee-orange-badge">
                       <span class="badge-curr">${sec.priceHeader || "TSH"}</span>
@@ -412,7 +412,7 @@
 
                   <!-- Plate Stage (Overlapping Top of the Card, Static - Zero Motion) -->
                   <div class="soup-plate-wrapper">
-                    <img src="${item.image}" alt="${item.name}" class="soup-static-plate" loading="lazy" decoding="async" />
+                    <img src="${item.image}" alt="${item.name}" class="soup-static-plate" loading="lazy" />
                   </div>
 
                   <!-- Card Body Below Plate: Centered Uppercase Title, Description & Price -->
@@ -460,7 +460,7 @@
               const plateHtml = `
                 <div class="special-plate-col">
                   <div class="special-plate-stage">
-                    <img src="${item.image}" alt="${item.name}" class="special-dish-plate" loading="lazy" decoding="async" />
+                    <img src="${item.image}" alt="${item.name}" class="special-dish-plate" loading="lazy" />
                     <!-- Overlapping Orange Circular Price Badge -->
                     <div class="special-orange-price-badge">
                       <span class="badge-curr">${sec.priceHeader || "TSH"}</span>
@@ -521,7 +521,7 @@
 
                   <!-- Plate Stage (Overlapping Top of the Card, Static - Zero Motion) -->
                   <div class="platter-plate-wrapper">
-                    <img src="${item.image}" alt="${item.name}" class="platter-static-plate" loading="lazy" decoding="async" />
+                    <img src="${item.image}" alt="${item.name}" class="platter-static-plate" loading="lazy" />
                   </div>
 
                   <!-- Card Body Below Plate: Centered Uppercase Title, Description & Price -->
@@ -573,7 +573,7 @@
 
                   <!-- Right: Circular Dish Photography -->
                   <div class="chips-meats-image-wrapper">
-                    <img src="${item.image}" alt="${item.name}" class="chips-meats-plate" loading="lazy" decoding="async" />
+                    <img src="${item.image}" alt="${item.name}" class="chips-meats-plate" loading="lazy" />
                   </div>
                 </div>
               `;
@@ -613,7 +613,7 @@
               const plateHtml = `
                 <div class="salad-plate-col">
                   <div class="salad-plate-stage">
-                    <img src="${item.image}" alt="${item.name}" class="salad-dish-plate" loading="lazy" decoding="async" />
+                    <img src="${item.image}" alt="${item.name}" class="salad-dish-plate" loading="lazy" />
                     <!-- Overlapping Circular Price Badge in NANASI SPECIAL style -->
                     <div class="special-orange-price-badge">
                       <span class="badge-curr">${sec.priceHeader || "TSH"}</span>
@@ -655,7 +655,7 @@
                   <!-- Left: Ceramic Plate Stage with Overlapping Vibrant Orange Price Badge -->
                   <div class="standalone-plate-col">
                     <div class="standalone-plate-stage">
-                      <img src="${item.image}" alt="${item.name}" class="standalone-dish-plate" loading="lazy" decoding="async" />
+                      <img src="${item.image}" alt="${item.name}" class="standalone-dish-plate" loading="lazy" />
                       <div class="standalone-orange-price-badge">
                         <span class="standalone-badge-currency">${sec.priceHeader || "TSH"}</span>
                         <span class="standalone-badge-amount">${formatPrice(item.price)}</span>
@@ -698,7 +698,7 @@
                 <div class="pizza-col-panel" data-item-id="${item.id}" data-sec-id="${sec.id}">
                   <!-- Top Half-View Pizza Stage with Corner Oval Price Badge (Exact to Attachment) -->
                   <div class="pizza-half-stage">
-                    <img src="${item.image}" alt="${item.name}" class="pizza-half-dish" loading="lazy" decoding="async" />
+                    <img src="${item.image}" alt="${item.name}" class="pizza-half-dish" loading="lazy" />
                     <div class="pizza-price-oval">
                       <span class="pizza-price-cur">${sec.priceHeader || "TSH"}</span>
                       <span class="pizza-price-num">${priceText}</span>
@@ -751,7 +751,7 @@
             <!-- Right Column: Plate with Overlapping Circular Price Badge -->
             <div class="pasta-plate-col">
               <div class="pasta-plate-stage">
-                <img src="${item.image}" alt="${item.name}" class="pasta-dish-plate" loading="lazy" decoding="async" />
+                <img src="${item.image}" alt="${item.name}" class="pasta-dish-plate" loading="lazy" />
                 <!-- Overlapping Orange Circular Price Badge -->
                 <div class="special-orange-price-badge">
                   <span class="badge-curr">${sec.priceHeader || "TSH"}</span>
@@ -791,7 +791,7 @@
 
                   <!-- Plate Stage (Overlapping Top of the Card, Static - Zero Motion) -->
                   <div class="dessert-plate-wrapper">
-                    <img src="${item.image}" alt="${item.name}" class="dessert-plate-img" loading="lazy" decoding="async" />
+                    <img src="${item.image}" alt="${item.name}" class="dessert-plate-img" loading="lazy" />
                   </div>
 
                   <!-- Card Body Below Plate: Centered Uppercase Title, Description & Bold Price -->
@@ -857,7 +857,7 @@
 
                   <!-- Centered Teacup Dish Presentation -->
                   <div class="tea-jimbo-stage">
-                    <img src="${item.image}" alt="${item.name}" class="tea-dish-cup" loading="lazy" decoding="async" />
+                    <img src="${item.image}" alt="${item.name}" class="tea-dish-cup" loading="lazy" />
                     <!-- Nanasi Special Circular Orange Price Badge -->
                     <div class="tea-price-badge">
                       <span class="tea-price-cur">${sec.priceHeader || "TSH"}</span>
@@ -900,7 +900,7 @@
 
           <!-- Left Dish/Glass Stage: Precision Cutout Tall Glass Standing Proudly on Left -->
           <div class="cold-drink-glass-wrapper">
-            <img src="${item.image}" alt="${item.name}" class="cold-drink-glass-img" loading="lazy" decoding="async" />
+            <img src="${item.image}" alt="${item.name}" class="cold-drink-glass-img" loading="lazy" />
           </div>
 
           <!-- Right Content Stage (Right-Aligned per Reference Attachment) -->
@@ -964,7 +964,7 @@
                 <div class="pizza-col-panel juice-col-panel" data-item-id="${item.id}" data-sec-id="${sec.id}">
                   <!-- Top Stage with Dish Photography (Pristine transparent cups) -->
                   <div class="juice-dish-stage">
-                    <img src="${item.image}" alt="${item.name}" class="juice-dish-cup" loading="lazy" decoding="async" />
+                    <img src="${item.image}" alt="${item.name}" class="juice-dish-cup" loading="lazy" />
                   </div>
 
                   <!-- Details Below Aligned to Left with Full Price Labeled Below Description -->
@@ -1025,7 +1025,7 @@
 
                   <!-- Dynamic Milkshake Stage with Overlapping Circular Orange Price Badge -->
                   <div class="milkshake-stage">
-                    <img src="${item.image}" alt="${item.name}" class="milkshake-img" loading="lazy" decoding="async" />
+                    <img src="${item.image}" alt="${item.name}" class="milkshake-img" loading="lazy" />
                     <!-- Overlapping Circular Price Badge matching SALAD / Nanasi Special -->
                     <div class="special-orange-price-badge milkshake-orange-badge">
                       <span class="badge-curr">${sec.priceHeader || "TSH"}</span>
@@ -1061,7 +1061,7 @@
         <!-- Clean Smoothie Cups Showcase Stage -->
         <div class="smoothie-showcase-stage">
           <div class="smoothie-cups-cluster-wrap">
-            <img src="assets/dishes/smoothie_cups_showcase.png" alt="Nanasi Smoothies" class="smoothie-cluster-img" loading="lazy" decoding="async" />
+            <img src="assets/dishes/smoothie_cups_showcase.png" alt="Nanasi Smoothies" class="smoothie-cluster-img" />
 
             <!-- 4 Interactive Columns with Gold Price Badges & Hitareas Over Cups -->
             <div class="smoothie-cups-grid">
@@ -1105,7 +1105,7 @@
   // ARCHETYPE A: Attachment 7 (CheckCheck) — Alternating Rounded Pill Stage + Scalloped Price Badges
   function renderArchetypeCheckCheck(sec, items, idx) {
     const isReverse = idx % 8 === 4;
-    const plateHtml = `<img class="cc-plate-circle" src="${sec.bannerImage}" alt="${sec.title}" data-showcase-sec="${sec.id}" loading="lazy" decoding="async" />`;
+    const plateHtml = `<img class="cc-plate-circle" src="${sec.bannerImage}" alt="${sec.title}" data-showcase-sec="${sec.id}" loading="lazy" />`;
     const bodyHtml = `
       <div>
         <div class="cc-title-row">
@@ -1119,7 +1119,7 @@
               (item) => `
             <div class="cc-item-card" data-item-id="${item.id}" data-sec-id="${sec.id}">
               <div class="cc-item-left">
-                <img class="cc-mini-thumb" src="${item.image}" alt="${item.name}" loading="lazy" decoding="async" />
+                <img class="cc-mini-thumb" src="${item.image}" alt="${item.name}" loading="lazy" />
                 <div>
                   <div class="cc-item-name">${item.name}</div>
                   ${item.subtitle ? `<div class="cc-item-sub">${item.subtitle}</div>` : ""}
@@ -1161,7 +1161,7 @@
             .map(
               (item) => `
             <li class="bc-leader-row" data-item-id="${item.id}" data-sec-id="${sec.id}">
-              <img class="bc-thumb" src="${item.image}" alt="${item.name}" loading="lazy" decoding="async" />
+              <img class="bc-thumb" src="${item.image}" alt="${item.name}" loading="lazy" />
               <div class="bc-row-main">
                 <div class="bc-name-dots">
                   <span class="bc-item-name">${item.name}</span>
@@ -1180,10 +1180,10 @@
 
     const plateCol = `
       <div class="bc-floating-showcase">
-        <img class="bc-showcase-plate" src="${sec.bannerImage}" alt="${sec.title}" data-showcase-sec="${sec.id}" loading="lazy" decoding="async" />
+        <img class="bc-showcase-plate" src="${sec.bannerImage}" alt="${sec.title}" data-showcase-sec="${sec.id}" loading="lazy" />
         ${
           items.length > 3
-            ? `<img class="bc-showcase-plate" style="width:140px;height:140px;margin-top:-24px;border-color:var(--nanasi-cream);" src="${showcaseImg}" alt="${sec.title}" data-showcase-sec="${sec.id}" loading="lazy" decoding="async" />`
+            ? `<img class="bc-showcase-plate" style="width:140px;height:140px;margin-top:-24px;border-color:var(--nanasi-cream);" src="${showcaseImg}" alt="${sec.title}" data-showcase-sec="${sec.id}" loading="lazy" />`
             : ""
         }
       </div>
@@ -1212,15 +1212,15 @@
       <section class="dyn-section archetype-gourmetboss reveal-on-scroll" id="sec-${sec.id}" data-section-id="${sec.id}">
         <div class="gb-grid">
           <div class="gb-vertical-ribbon">
-            <img class="gb-ribbon-plate" src="${sec.bannerImage}" alt="${sec.title}" data-showcase-sec="${sec.id}" loading="lazy" decoding="async" />
+            <img class="gb-ribbon-plate" src="${sec.bannerImage}" alt="${sec.title}" data-showcase-sec="${sec.id}" loading="lazy" />
             ${
               items.length > 2
-                ? `<img class="gb-ribbon-plate" src="${secondImg}" alt="${sec.title}" data-showcase-sec="${sec.id}" loading="lazy" decoding="async" />`
+                ? `<img class="gb-ribbon-plate" src="${secondImg}" alt="${sec.title}" data-showcase-sec="${sec.id}" loading="lazy" />`
                 : ""
             }
             ${
               items.length > 5
-                ? `<img class="gb-ribbon-plate" src="${thirdImg}" alt="${sec.title}" data-showcase-sec="${sec.id}" loading="lazy" decoding="async" />`
+                ? `<img class="gb-ribbon-plate" src="${thirdImg}" alt="${sec.title}" data-showcase-sec="${sec.id}" loading="lazy" />`
                 : ""
             }
           </div>
@@ -1233,7 +1233,7 @@
                 .map(
                   (item) => `
                 <li class="gb-row" data-item-id="${item.id}" data-sec-id="${sec.id}">
-                  <img class="gb-row-thumb" src="${item.image}" alt="${item.name}" loading="lazy" decoding="async" />
+                  <img class="gb-row-thumb" src="${item.image}" alt="${item.name}" loading="lazy" />
                   <div class="gb-row-info">
                     <div class="gb-row-top">
                       <span class="gb-row-name">${item.name}</span>
@@ -1268,7 +1268,7 @@
                 (item) => `
               <article class="yy-bowl-card" data-item-id="${item.id}" data-sec-id="${sec.id}">
                 <div class="yy-ceramic-bowl">
-                  <img src="${item.image}" alt="${item.name}" loading="lazy" decoding="async" />
+                  <img src="${item.image}" alt="${item.name}" loading="lazy" />
                 </div>
                 <div class="yy-card-info">
                   <div class="yy-card-name">${item.name}</div>
