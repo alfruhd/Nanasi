@@ -719,6 +719,7 @@ section[id^="sec-"],
   flex-direction: column;
   align-items: flex-start;
   z-index: 2;
+  padding-left: clamp(0px, 4vw, 64px);
 }
 
 .hero-script-tag {
@@ -855,6 +856,7 @@ section[id^="sec-"],
   .hero-right-content {
     order: 2;
     align-items: center;
+    padding-left: 0;
   }
   .hero-plate-wrapper {
     max-width: 380px;
@@ -6024,36 +6026,31 @@ section[id^="sec-"],
 
 /* ==========================================================================
    DYNAMIC SCROLL TRANSITIONS & ENTRANCE ANIMATIONS
-   1. Pizzas revealing from the left with a slow, smooth spin
-   2. Dishes spinning in with realistic tactile settle-shake
-   3. Drinks entering with an ice-clink shake and wobble
-   4. Bulletproof hover retention: elements NEVER disappear or reset on hover
+   Glitch-free design rules:
+   - Hidden "pre-reveal" state only applies while the section is NOT revealed.
+   - Reveal uses CSS keyframes with fill-mode BOTH (no flash during stagger delay).
+   - Only transform + opacity are animated (GPU-composited, no filter jank).
+   - NO !important on animated properties (so opacity keyframes really fade).
+   - After the animation, .anim-settled removes it and hands control back to the
+     element's normal styles & hover effects (no jump, no stuck delays).
    ========================================================================== */
 
 /* --------------------------------------------------------------------------
    1. PIZZA: Revealing From Left with Slow Smooth Spin
    -------------------------------------------------------------------------- */
 .pizza-col-panel:not(.juice-col-panel) .pizza-half-dish {
-  opacity: 1;
-  transform: translate(-45%, -50%) rotate(0deg);
   will-change: transform, opacity;
-  transition: transform 0.5s cubic-bezier(0.2, 0.85, 0.35, 1.2), filter 0.4s ease, opacity 0.25s ease;
+  backface-visibility: hidden;
 }
 
-/* Initially hidden BEFORE the pizza section is approached & revealed */
-.pizza-showcase-section:not(.is-revealed) .pizza-col-panel:not(.juice-col-panel):not(:hover) .pizza-half-dish {
+section:not(.is-revealed) .pizza-col-panel:not(.juice-col-panel) .pizza-half-dish {
   opacity: 0;
-  transform: translate(-140%, -50%) rotate(-180deg) scale(0.85);
 }
 
-/* Rolling entrance when approaching the Pizza section */
-.pizza-showcase-section.is-revealed .pizza-col-panel:not(.juice-col-panel) .pizza-half-dish,
-.pizza-col-panel:not(.juice-col-panel).is-revealed .pizza-half-dish {
-  opacity: 1 !important;
-  animation: pizzaRollInFromLeft 1.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+section.is-revealed .pizza-col-panel:not(.juice-col-panel) .pizza-half-dish {
+  animation: pizzaRollInFromLeft 1.8s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
-/* Cascading stagger from left to right across the 5 pizzas */
 .pizza-endless-grid .pizza-col-panel:nth-child(1) .pizza-half-dish { animation-delay: 0.05s; }
 .pizza-endless-grid .pizza-col-panel:nth-child(2) .pizza-half-dish { animation-delay: 0.18s; }
 .pizza-endless-grid .pizza-col-panel:nth-child(3) .pizza-half-dish { animation-delay: 0.31s; }
@@ -6062,209 +6059,207 @@ section[id^="sec-"],
 
 @keyframes pizzaRollInFromLeft {
   0% {
-    transform: translate(-140%, -50%) rotate(-180deg) scale(0.85);
+    transform: translate3d(0, 0, 0) translate(-140%, -50%) rotate(-180deg) scale(0.85);
     opacity: 0;
-    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
   }
-  40% {
+  35% {
     opacity: 1;
-  }
-  75% {
-    transform: translate(-42%, -50%) rotate(4deg) scale(1.02);
-    filter: drop-shadow(14px 22px 30px rgba(0, 0, 0, 0.95));
   }
   100% {
-    transform: translate(-45%, -50%) rotate(0deg) scale(1);
+    transform: translate3d(0, 0, 0) translate(-45%, -50%) rotate(0deg) scale(1);
     opacity: 1;
-    filter: drop-shadow(10px 16px 26px rgba(0, 0, 0, 0.9));
   }
 }
 
-/* Hover flourish: slow smooth spin forward - NEVER DISAPPEARS */
+/* Hover flourish */
 .pizza-col-panel:hover .pizza-half-dish {
   opacity: 1 !important;
   visibility: visible !important;
   transform: translate(-43%, -50%) scale(1.06) rotate(12deg) !important;
   filter: drop-shadow(14px 22px 32px rgba(0, 0, 0, 0.98)) !important;
-  transition: transform 0.5s cubic-bezier(0.2, 0.85, 0.35, 1.2), filter 0.4s ease, opacity 0.2s ease !important;
+  transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1), filter 0.4s ease !important;
 }
 
 /* --------------------------------------------------------------------------
-   2. DISHES: Spinning In with Tactile Settle-Shake (Plates & Bowls)
+   2. PLATES & BOWLS: Slow, silky spin (NO shaking, NO wobble)
    -------------------------------------------------------------------------- */
-.bites-dish-img,
-.soup-static-plate,
-.special-dish-plate,
-.platter-static-plate,
-.chips-meats-plate,
-.salad-dish-plate,
-.standalone-dish-plate,
-.pasta-dish-plate,
-.dessert-plate-img,
-.jimbo-bowl-img,
-.cc-plate-circle,
-.bc-showcase-plate,
-.gb-ribbon-plate {
-  opacity: 1;
-  transform: scale(1) rotate(0deg);
+:is(.bites-dish-img, .soup-static-plate, .special-dish-plate, .platter-static-plate, .chips-meats-plate, .salad-dish-plate, .standalone-dish-plate, .pasta-dish-plate, .dessert-plate-img, .jimbo-bowl-img) {
   will-change: transform, opacity;
-  transition: transform 0.45s cubic-bezier(0.2, 0.85, 0.35, 1.2), filter 0.35s ease, opacity 0.25s ease;
+  backface-visibility: hidden;
+  transform-origin: 50% 50%;
 }
 
-/* Initially hidden BEFORE the specific dish section is approached & revealed */
-:is(section, div):not(.is-revealed) > * :is(.bites-dish-img, .soup-static-plate, .special-dish-plate, .platter-static-plate, .chips-meats-plate, .salad-dish-plate, .standalone-dish-plate, .pasta-dish-plate, .dessert-plate-img, .jimbo-bowl-img):not(:hover),
-:is(section, div):not(.is-revealed):not(:hover) :is(.bites-dish-img, .soup-static-plate, .special-dish-plate, .platter-static-plate, .chips-meats-plate, .salad-dish-plate, .standalone-dish-plate, .pasta-dish-plate, .dessert-plate-img, .jimbo-bowl-img) {
+section:not(.is-revealed) :is(.bites-dish-img, .soup-static-plate, .special-dish-plate, .platter-static-plate, .chips-meats-plate, .salad-dish-plate, .standalone-dish-plate, .pasta-dish-plate, .dessert-plate-img, .jimbo-bowl-img) {
   opacity: 0;
-  transform: scale(0.65) rotate(-65deg);
 }
 
-/* Spinning entrance when approaching the specific dish section */
-:is(section.is-revealed, .is-revealed) :is(.bites-dish-img, .soup-static-plate, .special-dish-plate, .platter-static-plate, .chips-meats-plate, .salad-dish-plate, .standalone-dish-plate, .pasta-dish-plate, .dessert-plate-img, .jimbo-bowl-img, .cc-plate-circle, .bc-showcase-plate, .gb-ribbon-plate) {
-  opacity: 1 !important;
-  animation: dishSpinShakeEntrance 1.05s cubic-bezier(0.2, 0.85, 0.35, 1.2) forwards;
+section.is-revealed :is(.bites-dish-img, .soup-static-plate, .special-dish-plate, .platter-static-plate, .chips-meats-plate, .salad-dish-plate, .standalone-dish-plate, .pasta-dish-plate, .dessert-plate-img, .jimbo-bowl-img) {
+  animation: plateSlowMotionSpin 2.6s cubic-bezier(0.25, 0.8, 0.25, 1) both;
 }
 
-/* Stagger delay across columns */
-:is(.bites-card, .soup-card, .platter-card, .chips-meats-card, .salad-plate-col, .standalone-plate-col, .pasta-plate-col, .dessert-card, .jimbo-card):nth-child(1) :is(.bites-dish-img, .soup-static-plate, .special-dish-plate, .platter-static-plate, .chips-meats-plate, .salad-dish-plate, .standalone-dish-plate, .pasta-dish-plate, .dessert-plate-img, .jimbo-bowl-img) { animation-delay: 0.05s; }
-:is(.bites-card, .soup-card, .platter-card, .chips-meats-card, .salad-plate-col, .standalone-plate-col, .pasta-plate-col, .dessert-card, .jimbo-card):nth-child(2) :is(.bites-dish-img, .soup-static-plate, .special-dish-plate, .platter-static-plate, .chips-meats-plate, .salad-dish-plate, .standalone-dish-plate, .pasta-dish-plate, .dessert-plate-img, .jimbo-bowl-img) { animation-delay: 0.16s; }
-:is(.bites-card, .soup-card, .platter-card, .chips-meats-card, .salad-plate-col, .standalone-plate-col, .pasta-plate-col, .dessert-card, .jimbo-card):nth-child(3) :is(.bites-dish-img, .soup-static-plate, .special-dish-plate, .platter-static-plate, .chips-meats-plate, .salad-dish-plate, .standalone-dish-plate, .pasta-dish-plate, .dessert-plate-img, .jimbo-bowl-img) { animation-delay: 0.27s; }
-:is(.bites-card, .soup-card, .platter-card, .chips-meats-card, .salad-plate-col, .standalone-plate-col, .pasta-plate-col, .dessert-card, .jimbo-card):nth-child(4) :is(.bites-dish-img, .soup-static-plate, .special-dish-plate, .platter-static-plate, .chips-meats-plate, .salad-dish-plate, .standalone-dish-plate, .pasta-dish-plate, .dessert-plate-img, .jimbo-bowl-img) { animation-delay: 0.38s; }
-:is(.bites-card, .soup-card, .platter-card, .chips-meats-card, .salad-plate-col, .standalone-plate-col, .pasta-plate-col, .dessert-card, .jimbo-card):nth-child(5) :is(.bites-dish-img, .soup-static-plate, .special-dish-plate, .platter-static-plate, .chips-meats-plate, .salad-dish-plate, .standalone-dish-plate, .pasta-dish-plate, .dessert-plate-img, .jimbo-bowl-img) { animation-delay: 0.49s; }
-:is(.bites-card, .soup-card, .platter-card, .chips-meats-card, .salad-plate-col, .standalone-plate-col, .pasta-plate-col, .dessert-card, .jimbo-card):nth-child(6) :is(.bites-dish-img, .soup-static-plate, .special-dish-plate, .platter-static-plate, .chips-meats-plate, .salad-dish-plate, .standalone-dish-plate, .pasta-dish-plate, .dessert-plate-img, .jimbo-bowl-img) { animation-delay: 0.60s; }
-:is(.bites-card, .soup-card, .platter-card, .chips-meats-card, .salad-plate-col, .standalone-plate-col, .pasta-plate-col, .dessert-card, .jimbo-card):nth-child(n+7) :is(.bites-dish-img, .soup-static-plate, .special-dish-plate, .platter-static-plate, .chips-meats-plate, .salad-dish-plate, .standalone-dish-plate, .pasta-dish-plate, .dessert-plate-img, .jimbo-bowl-img) { animation-delay: 0.70s; }
+section.is-revealed :is(.bites-card, .soup-card, .platter-card, .chips-meats-card, .salad-plate-col, .standalone-plate-col, .pasta-plate-col, .dessert-card, .jimbo-card):nth-child(1) :is(.bites-dish-img, .soup-static-plate, .special-dish-plate, .platter-static-plate, .chips-meats-plate, .salad-dish-plate, .standalone-dish-plate, .pasta-dish-plate, .dessert-plate-img, .jimbo-bowl-img) { animation-delay: 0.05s; }
+section.is-revealed :is(.bites-card, .soup-card, .platter-card, .chips-meats-card, .salad-plate-col, .standalone-plate-col, .pasta-plate-col, .dessert-card, .jimbo-card):nth-child(2) :is(.bites-dish-img, .soup-static-plate, .special-dish-plate, .platter-static-plate, .chips-meats-plate, .salad-dish-plate, .standalone-dish-plate, .pasta-dish-plate, .dessert-plate-img, .jimbo-bowl-img) { animation-delay: 0.17s; }
+section.is-revealed :is(.bites-card, .soup-card, .platter-card, .chips-meats-card, .salad-plate-col, .standalone-plate-col, .pasta-plate-col, .dessert-card, .jimbo-card):nth-child(3) :is(.bites-dish-img, .soup-static-plate, .special-dish-plate, .platter-static-plate, .chips-meats-plate, .salad-dish-plate, .standalone-dish-plate, .pasta-dish-plate, .dessert-plate-img, .jimbo-bowl-img) { animation-delay: 0.29s; }
+section.is-revealed :is(.bites-card, .soup-card, .platter-card, .chips-meats-card, .salad-plate-col, .standalone-plate-col, .pasta-plate-col, .dessert-card, .jimbo-card):nth-child(4) :is(.bites-dish-img, .soup-static-plate, .special-dish-plate, .platter-static-plate, .chips-meats-plate, .salad-dish-plate, .standalone-dish-plate, .pasta-dish-plate, .dessert-plate-img, .jimbo-bowl-img) { animation-delay: 0.41s; }
+section.is-revealed :is(.bites-card, .soup-card, .platter-card, .chips-meats-card, .salad-plate-col, .standalone-plate-col, .pasta-plate-col, .dessert-card, .jimbo-card):nth-child(5) :is(.bites-dish-img, .soup-static-plate, .special-dish-plate, .platter-static-plate, .chips-meats-plate, .salad-dish-plate, .standalone-dish-plate, .pasta-dish-plate, .dessert-plate-img, .jimbo-bowl-img) { animation-delay: 0.53s; }
+section.is-revealed :is(.bites-card, .soup-card, .platter-card, .chips-meats-card, .salad-plate-col, .standalone-plate-col, .pasta-plate-col, .dessert-card, .jimbo-card):nth-child(6) :is(.bites-dish-img, .soup-static-plate, .special-dish-plate, .platter-static-plate, .chips-meats-plate, .salad-dish-plate, .standalone-dish-plate, .pasta-dish-plate, .dessert-plate-img, .jimbo-bowl-img) { animation-delay: 0.65s; }
+section.is-revealed :is(.bites-card, .soup-card, .platter-card, .chips-meats-card, .salad-plate-col, .standalone-plate-col, .pasta-plate-col, .dessert-card, .jimbo-card):nth-child(n+7) :is(.bites-dish-img, .soup-static-plate, .special-dish-plate, .platter-static-plate, .chips-meats-plate, .salad-dish-plate, .standalone-dish-plate, .pasta-dish-plate, .dessert-plate-img, .jimbo-bowl-img) { animation-delay: 0.77s; }
 
-@keyframes dishSpinShakeEntrance {
+@keyframes plateSlowMotionSpin {
   0% {
-    transform: scale(0.6) rotate(-75deg);
+    transform: translate3d(0, 0, 0) rotate(-180deg) scale(0.9);
     opacity: 0;
-    filter: blur(2px) drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
   }
-  45% {
+  25% {
     opacity: 1;
-    filter: blur(0);
-  }
-  68% {
-    transform: scale(1.08) rotate(8deg);
-  }
-  80% {
-    transform: scale(0.96) rotate(-5deg);
-  }
-  88% {
-    transform: scale(1.02) rotate(2.5deg);
-  }
-  95% {
-    transform: scale(0.99) rotate(-1deg);
   }
   100% {
-    transform: scale(1) rotate(0deg);
+    transform: translate3d(0, 0, 0) rotate(0deg) scale(1);
     opacity: 1;
-    filter: blur(0);
   }
 }
 
-/* Hover Spin & Settle for all dishes - NEVER DISAPPEARS */
-:is(.bites-card, .soup-card, .platter-card, .chips-meats-card, .special-plate-col, .salad-plate-col, .standalone-plate-col, .pasta-plate-col, .dessert-card, .jimbo-card, .special-dish-row, .standalone-dish-row, .pasta-dish-row, .salad-dish-row):hover :is(.bites-dish-img, .soup-static-plate, .special-dish-plate, .platter-static-plate, .chips-meats-plate, .salad-dish-plate, .standalone-dish-plate, .pasta-dish-plate, .dessert-plate-img, .jimbo-bowl-img) {
-  opacity: 1 !important;
-  visibility: visible !important;
-  transform: scale(1.08) rotate(14deg) !important;
-  filter: drop-shadow(0 20px 34px rgba(0, 0, 0, 0.9)) !important;
-  transition: transform 0.45s cubic-bezier(0.2, 0.85, 0.35, 1.2), filter 0.35s ease, opacity 0.2s ease !important;
+/* Hover spin (only once settled, so it never fights the entrance) */
+.anim-settled :is(.bites-card, .soup-card, .platter-card, .chips-meats-card, .salad-plate-col, .standalone-plate-col, .pasta-plate-col, .dessert-card, .jimbo-card, .special-dish-row, .standalone-dish-row, .pasta-dish-row, .salad-dish-row):hover :is(.bites-dish-img, .soup-static-plate, .special-dish-plate, .platter-static-plate, .chips-meats-plate, .salad-dish-plate, .standalone-dish-plate, .pasta-dish-plate, .dessert-plate-img, .jimbo-bowl-img) {
+  transform: scale(1.08) rotate(14deg);
+  transition: transform 0.7s cubic-bezier(0.22, 1, 0.36, 1), filter 0.4s ease;
 }
 
 /* --------------------------------------------------------------------------
-   3. DRINKS: Entrance Shake & Smooth Hover (Cups & Glasses)
+   3. DRINKS: Smooth chilled entrance
    -------------------------------------------------------------------------- */
-.coffee-cup-img,
-.cold-drink-glass-img,
-.tea-dish-cup,
-.juice-dish-cup,
-.milkshake-img,
-.smoothie-cluster-img {
-  opacity: 1;
-  transform: translateY(0) scale(1) rotate(0deg);
+:is(.coffee-cup-img, .cold-drink-glass-img, .tea-dish-cup, .juice-dish-cup, .milkshake-img, .smoothie-cluster-img) {
   will-change: transform, opacity;
-  transition: transform 0.4s cubic-bezier(0.2, 0.85, 0.35, 1.2), filter 0.35s ease, opacity 0.25s ease;
+  backface-visibility: hidden;
 }
 
-/* Initially hidden BEFORE the specific drink section is approached & revealed */
-:is(section, div):not(.is-revealed) > * :is(.coffee-cup-img, .cold-drink-glass-img, .tea-dish-cup, .juice-dish-cup, .milkshake-img, .smoothie-cluster-img):not(:hover),
-:is(section, div):not(.is-revealed):not(:hover) :is(.coffee-cup-img, .cold-drink-glass-img, .tea-dish-cup, .juice-dish-cup, .milkshake-img, .smoothie-cluster-img) {
+section:not(.is-revealed) :is(.coffee-cup-img, .cold-drink-glass-img, .tea-dish-cup, .juice-dish-cup, .milkshake-img, .smoothie-cluster-img) {
   opacity: 0;
-  transform: translateY(48px) scale(0.82) rotate(-6deg);
 }
 
-/* Shake entrance when approaching the specific drink section */
-:is(section.is-revealed, .is-revealed) :is(.coffee-cup-img, .cold-drink-glass-img, .tea-dish-cup, .juice-dish-cup, .milkshake-img, .smoothie-cluster-img) {
-  opacity: 1 !important;
-  animation: drinkEntranceShake 0.92s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+section.is-revealed :is(.coffee-cup-img, .cold-drink-glass-img, .tea-dish-cup, .juice-dish-cup, .milkshake-img, .smoothie-cluster-img) {
+  animation: drinkEntranceShake 1s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
-/* Stagger delay across drink items */
-:is(.coffee-card, .cold-drink-bites-card, .tea-jimbo-card, .juice-col-panel, .milkshake-card):nth-child(1) :is(.coffee-cup-img, .cold-drink-glass-img, .tea-dish-cup, .juice-dish-cup, .milkshake-img) { animation-delay: 0.06s; }
-:is(.coffee-card, .cold-drink-bites-card, .tea-jimbo-card, .juice-col-panel, .milkshake-card):nth-child(2) :is(.coffee-cup-img, .cold-drink-glass-img, .tea-dish-cup, .juice-dish-cup, .milkshake-img) { animation-delay: 0.16s; }
-:is(.coffee-card, .cold-drink-bites-card, .tea-jimbo-card, .juice-col-panel, .milkshake-card):nth-child(3) :is(.coffee-cup-img, .cold-drink-glass-img, .tea-dish-cup, .juice-dish-cup, .milkshake-img) { animation-delay: 0.26s; }
-:is(.coffee-card, .cold-drink-bites-card, .tea-jimbo-card, .juice-col-panel, .milkshake-card):nth-child(4) :is(.coffee-cup-img, .cold-drink-glass-img, .tea-dish-cup, .juice-dish-cup, .milkshake-img) { animation-delay: 0.36s; }
-:is(.coffee-card, .cold-drink-bites-card, .tea-jimbo-card, .juice-col-panel, .milkshake-card):nth-child(5) :is(.coffee-cup-img, .cold-drink-glass-img, .tea-dish-cup, .juice-dish-cup, .milkshake-img) { animation-delay: 0.46s; }
-:is(.coffee-card, .cold-drink-bites-card, .tea-jimbo-card, .juice-col-panel, .milkshake-card):nth-child(6) :is(.coffee-cup-img, .cold-drink-glass-img, .tea-dish-cup, .juice-dish-cup, .milkshake-img) { animation-delay: 0.56s; }
-:is(.coffee-card, .cold-drink-bites-card, .tea-jimbo-card, .juice-col-panel, .milkshake-card):nth-child(n+7) :is(.coffee-cup-img, .cold-drink-glass-img, .tea-dish-cup, .juice-dish-cup, .milkshake-img) { animation-delay: 0.66s; }
+section.is-revealed :is(.coffee-card, .cold-drink-bites-card, .tea-jimbo-card, .juice-col-panel, .milkshake-card):nth-child(1) :is(.coffee-cup-img, .cold-drink-glass-img, .tea-dish-cup, .juice-dish-cup, .milkshake-img, .smoothie-cluster-img) { animation-delay: 0.06s; }
+section.is-revealed :is(.coffee-card, .cold-drink-bites-card, .tea-jimbo-card, .juice-col-panel, .milkshake-card):nth-child(2) :is(.coffee-cup-img, .cold-drink-glass-img, .tea-dish-cup, .juice-dish-cup, .milkshake-img, .smoothie-cluster-img) { animation-delay: 0.16s; }
+section.is-revealed :is(.coffee-card, .cold-drink-bites-card, .tea-jimbo-card, .juice-col-panel, .milkshake-card):nth-child(3) :is(.coffee-cup-img, .cold-drink-glass-img, .tea-dish-cup, .juice-dish-cup, .milkshake-img, .smoothie-cluster-img) { animation-delay: 0.26s; }
+section.is-revealed :is(.coffee-card, .cold-drink-bites-card, .tea-jimbo-card, .juice-col-panel, .milkshake-card):nth-child(4) :is(.coffee-cup-img, .cold-drink-glass-img, .tea-dish-cup, .juice-dish-cup, .milkshake-img, .smoothie-cluster-img) { animation-delay: 0.36s; }
+section.is-revealed :is(.coffee-card, .cold-drink-bites-card, .tea-jimbo-card, .juice-col-panel, .milkshake-card):nth-child(5) :is(.coffee-cup-img, .cold-drink-glass-img, .tea-dish-cup, .juice-dish-cup, .milkshake-img, .smoothie-cluster-img) { animation-delay: 0.46s; }
+section.is-revealed :is(.coffee-card, .cold-drink-bites-card, .tea-jimbo-card, .juice-col-panel, .milkshake-card):nth-child(6) :is(.coffee-cup-img, .cold-drink-glass-img, .tea-dish-cup, .juice-dish-cup, .milkshake-img, .smoothie-cluster-img) { animation-delay: 0.56s; }
+section.is-revealed :is(.coffee-card, .cold-drink-bites-card, .tea-jimbo-card, .juice-col-panel, .milkshake-card):nth-child(n+7) :is(.coffee-cup-img, .cold-drink-glass-img, .tea-dish-cup, .juice-dish-cup, .milkshake-img, .smoothie-cluster-img) { animation-delay: 0.66s; }
 
 @keyframes drinkEntranceShake {
-  0% {
-    transform: translateY(48px) scale(0.82) rotate(-6deg);
-    opacity: 0;
-  }
-  45% {
-    opacity: 1;
-  }
-  60% {
-    transform: translateY(-8px) scale(1.04) rotate(4.5deg);
-  }
-  74% {
-    transform: translateY(2px) scale(0.98) rotate(-3deg);
-  }
-  86% {
-    transform: translateY(-1px) scale(1.01) rotate(1.5deg);
-  }
-  94% {
-    transform: translateY(0) scale(1) rotate(-0.8deg);
-  }
-  100% {
-    transform: translateY(0) scale(1) rotate(0deg);
-    opacity: 1;
-  }
+  0%   { transform: translate3d(0, 44px, 0) scale(0.86) rotate(-5deg); opacity: 0; }
+  40%  { opacity: 1; }
+  62%  { transform: translate3d(0, -6px, 0) scale(1.03) rotate(3deg); }
+  80%  { transform: translate3d(0, 2px, 0) scale(0.99) rotate(-1.5deg); }
+  100% { transform: translate3d(0, 0, 0) scale(1) rotate(0deg); opacity: 1; }
 }
 
-/* Smooth Interactive Drink Hover - NEVER DISAPPEARS */
-:is(.coffee-card, .cold-drink-bites-card, .tea-jimbo-card, .juice-col-panel, .milkshake-card):hover :is(.coffee-cup-img, .cold-drink-glass-img, .tea-dish-cup, .juice-dish-cup, .milkshake-img) {
-  opacity: 1 !important;
-  visibility: visible !important;
-  transform: translateY(-6px) scale(1.08) rotate(1.5deg) !important;
-  filter: drop-shadow(0 24px 38px rgba(0, 0, 0, 0.95)) drop-shadow(0 8px 16px rgba(0, 0, 0, 0.6)) !important;
-  transition: transform 0.35s cubic-bezier(0.2, 0.85, 0.35, 1.2), filter 0.35s ease, opacity 0.2s ease !important;
+.anim-settled :is(.coffee-card, .cold-drink-bites-card, .tea-jimbo-card, .juice-col-panel, .milkshake-card):hover :is(.coffee-cup-img, .cold-drink-glass-img, .tea-dish-cup, .juice-dish-cup, .milkshake-img, .smoothie-cluster-img) {
+  transform: translateY(-6px) scale(1.08) rotate(1.5deg);
+  transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1), filter 0.35s ease;
 }
 
 /* --------------------------------------------------------------------------
-   4. SETTLED STATE & UNIVERSAL HOVER SAFETY GUARANTEE
-   Once entrance animation finishes, release animation layer for 100% stable interaction
+   4. SETTLED STATE: release animations -> normal styles & hover take over
    -------------------------------------------------------------------------- */
-.anim-settled .pizza-half-dish,
-.anim-settled .coffee-cup-img,
-.anim-settled .cold-drink-glass-img,
-.anim-settled .tea-dish-cup,
-.anim-settled .juice-dish-cup,
-.anim-settled .milkshake-img,
-.anim-settled .smoothie-cluster-img,
-.anim-settled :is(.bites-dish-img, .soup-static-plate, .special-dish-plate, .platter-static-plate, .chips-meats-plate, .salad-dish-plate, .standalone-dish-plate, .pasta-dish-plate, .dessert-plate-img, .jimbo-bowl-img) {
-  animation: none !important;
-  opacity: 1 !important;
+section.anim-settled :is(.bites-section-header, .soup-section-header, .platters-section-header, .chips-meats-section-header, .salad-section-header, .standalone-section-header, .pizza-section-header, .pasta-section-header, .desserts-section-header, .tea-section-header, .cold-drinks-section-header, .juice-section-header, .milkshake-section-header, .smoothie-section-header),
+section.anim-settled :is(.bites-card, .soup-card, .special-plate-col, .platter-card, .chips-meats-card, .salad-plate-col, .standalone-plate-col, .pasta-plate-col, .dessert-card, .jimbo-card, .coffee-card, .cold-drink-bites-card, .tea-jimbo-card, .juice-col-panel, .milkshake-card, .pizza-col-panel, .smoothie-cup-col),
+section.anim-settled :is(.bites-dish-img, .soup-static-plate, .special-dish-plate, .platter-static-plate, .chips-meats-plate, .salad-dish-plate, .standalone-dish-plate, .pasta-dish-plate, .dessert-plate-img, .jimbo-bowl-img),
+section.anim-settled :is(.coffee-cup-img, .cold-drink-glass-img, .tea-dish-cup, .juice-dish-cup, .milkshake-img, .smoothie-cluster-img),
+section.anim-settled .pizza-half-dish {
+  animation: none;
 }
 
-/* CRITICAL GUARANTEE: No dish, drink, or pizza EVER disappears when hovered or revealed */
-:is(.bites-card, .soup-card, .platter-card, .chips-meats-card, .salad-plate-col, .standalone-plate-col, .pasta-plate-col, .dessert-card, .jimbo-card, .coffee-card, .cold-drink-bites-card, .tea-jimbo-card, .juice-col-panel, .milkshake-card, .pizza-col-panel, .smoothie-cup-col, .smoothie-label-card, .special-dish-row, .standalone-dish-row, .pasta-dish-row, .salad-dish-row):hover * {
+section.anim-settled :is(.bites-dish-img, .soup-static-plate, .special-dish-plate, .platter-static-plate, .chips-meats-plate, .salad-dish-plate, .standalone-dish-plate, .pasta-dish-plate, .dessert-plate-img, .jimbo-bowl-img, .coffee-cup-img, .cold-drink-glass-img, .tea-dish-cup, .juice-dish-cup, .milkshake-img, .smoothie-cluster-img) {
+  opacity: 1;
+}
+
+/* Hover safety: nothing ever disappears on hover */
+:is(.bites-card, .soup-card, .special-plate-col, .platter-card, .chips-meats-card, .salad-plate-col, .standalone-plate-col, .pasta-plate-col, .dessert-card, .jimbo-card, .coffee-card, .cold-drink-bites-card, .tea-jimbo-card, .juice-col-panel, .milkshake-card, .pizza-col-panel, .smoothie-cup-col, .special-dish-row, .standalone-dish-row, .pasta-dish-row, .salad-dish-row):hover :is(.bites-dish-img, .soup-static-plate, .special-dish-plate, .platter-static-plate, .chips-meats-plate, .salad-dish-plate, .standalone-dish-plate, .pasta-dish-plate, .dessert-plate-img, .jimbo-bowl-img, .coffee-cup-img, .cold-drink-glass-img, .tea-dish-cup, .juice-dish-cup, .milkshake-img, .smoothie-cluster-img, .pizza-half-dish) {
+  opacity: 1 !important;
   visibility: visible !important;
 }
 
-:is(.bites-card, .soup-card, .platter-card, .chips-meats-card, .salad-plate-col, .standalone-plate-col, .pasta-plate-col, .dessert-card, .jimbo-card, .coffee-card, .cold-drink-bites-card, .tea-jimbo-card, .juice-col-panel, .milkshake-card, .pizza-col-panel):hover :is(.bites-dish-img, .soup-static-plate, .special-dish-plate, .platter-static-plate, .chips-meats-plate, .salad-dish-plate, .standalone-dish-plate, .pasta-dish-plate, .dessert-plate-img, .jimbo-bowl-img, .coffee-cup-img, .cold-drink-glass-img, .tea-dish-cup, .juice-dish-cup, .milkshake-img, .pizza-half-dish) {
-  opacity: 1 !important;
-  visibility: visible !important;
+/* Respect reduced-motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  section :is(.bites-section-header, .soup-section-header, .platters-section-header, .chips-meats-section-header, .salad-section-header, .standalone-section-header, .pizza-section-header, .pasta-section-header, .desserts-section-header, .tea-section-header, .cold-drinks-section-header, .juice-section-header, .milkshake-section-header, .smoothie-section-header, .bites-card, .soup-card, .special-plate-col, .platter-card, .chips-meats-card, .salad-plate-col, .standalone-plate-col, .pasta-plate-col, .dessert-card, .jimbo-card, .coffee-card, .cold-drink-bites-card, .tea-jimbo-card, .juice-col-panel, .milkshake-card, .pizza-col-panel, .smoothie-cup-col, .bites-dish-img, .soup-static-plate, .special-dish-plate, .platter-static-plate, .chips-meats-plate, .salad-dish-plate, .standalone-dish-plate, .pasta-dish-plate, .dessert-plate-img, .jimbo-bowl-img, .coffee-cup-img, .cold-drink-glass-img, .tea-dish-cup, .juice-dish-cup, .milkshake-img, .smoothie-cluster-img, .pizza-half-dish) {
+    animation: none !important;
+    opacity: 1 !important;
+  }
+}
+
+
+/* ==========================================================================
+   PRINT: Only the QR card is printed (triggered by "PRINT QR CARD")
+   ========================================================================== */
+@media print {
+  @page { margin: 12mm; }
+
+  body.printing-qr {
+    background: #fff !important;
+  }
+  body.printing-qr::before,
+  body.printing-qr::after { display: none !important; }
+
+  /* Hide everything except the QR modal */
+  body.printing-qr > *:not(#qrModal) { display: none !important; }
+
+  body.printing-qr #qrModal {
+    position: static !important;
+    display: flex !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+    background: #fff !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    padding: 0 !important;
+    inset: auto !important;
+    justify-content: center;
+    align-items: flex-start;
+  }
+  body.printing-qr #qrModal .modal-card {
+    display: block !important;
+    width: auto !important;
+    max-width: none !important;
+    background: transparent !important;
+    box-shadow: none !important;
+    border: none !important;
+    transform: none !important;
+    overflow: visible !important;
+  }
+  body.printing-qr #qrModal .modal-close,
+  body.printing-qr #qrModal .modal-body { display: none !important; }
+
+  body.printing-qr #qrModal .qr-stage-wrap {
+    display: block !important;
+    background: transparent !important;
+    padding: 0 !important;
+  }
+  body.printing-qr #qrModal .qr-card-frame {
+    margin: 0 auto !important;
+    box-shadow: none !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+  body.printing-qr #qrModal .qr-white-box img {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+    image-rendering: pixelated;
+  }
+}
+
+@media print {
+  body.printing-qr #qrModal .qr-card-frame { max-width: 120mm !important; padding: 10mm 12mm !important; border-radius: 8mm !important; }
+  body.printing-qr #qrModal .qr-brand-name { font-size: 20pt !important; }
+  body.printing-qr #qrModal .qr-brand-slogan { font-size: 10pt !important; margin-bottom: 6mm !important; }
+  body.printing-qr #qrModal .qr-white-box { padding: 5mm !important; }
+  body.printing-qr #qrModal .qr-white-box img { width: 80mm !important; height: 80mm !important; }
+  body.printing-qr #qrModal .qr-url-text { font-size: 12pt !important; }
+  body.printing-qr #qrModal .qr-sub-text { font-size: 9pt !important; }
 }

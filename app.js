@@ -1287,51 +1287,83 @@
 
   // Scroll Reveal Observer
   // DYNAMIC SCROLL TRANSITIONS: Spinning Dishes, Shaking Drinks & Pizzas Sliding in From Left with Slow Smooth Spin
-  // Precise Scroll-Triggered Entrance Transitions per Section
+  // Trigger entrance transition for a specific section ONLY when it is visibly on screen
+  function triggerSectionEntrance(sec) {
+    if (!sec || sec.classList.contains("is-revealed")) return;
+    sec.classList.add("is-revealed", "is-visible");
+
+    // Also mark cards and drink/dish containers within this specific section
+    sec.querySelectorAll(
+      ".pizza-col-panel, .bites-card, .soup-card, .special-plate-col, " +
+      ".platter-card, .chips-meats-card, .salad-plate-col, .standalone-plate-col, " +
+      ".pasta-plate-col, .dessert-card, .jimbo-card, .coffee-card, " +
+      ".cold-drink-bites-card, .tea-jimbo-card, .juice-col-panel, " +
+      ".milkshake-card, .smoothie-cups-cluster-wrap, .smoothie-cup-col"
+    ).forEach((child) => {
+      child.classList.add("is-revealed", "is-visible");
+    });
+
+    // Allow full duration for slow-motion 2.4s spin + staggered delays to complete
+    setTimeout(() => {
+      sec.classList.add("anim-settled");
+    }, 4400);
+  }
+
+  // Precise Scroll-Triggered Entrance Transitions per Section (Starts ONLY when sections are visible)
   function observeScrollAnimations() {
     const sections = document.querySelectorAll(
       "section[id^='sec-'], .jimbo-hero-section, .dyn-section"
     );
 
-    if (!("IntersectionObserver" in window)) {
-      sections.forEach((sec) => {
-        sec.classList.add("is-revealed", "is-visible", "anim-settled");
-      });
-      return;
+    const foodContentSelector =
+      ".bites-cards-grid, .soup-cards-grid, .platters-cards-grid, " +
+      ".pizza-endless-grid, .cold-drinks-stream-grid, .chips-meats-grid, " +
+      ".salad-dish-row, .salad-plate-stage, .standalone-dish-row, .standalone-plate-stage, " +
+      ".pasta-dish-container, .desserts-cards-grid, .tea-jimbo-grid, " +
+      ".coffee-cards-grid, .milkshake-cards-grid, .smoothie-showcase-stage, " +
+      ".smoothie-cups-grid, .cc-items-grid, .bc-content-grid, .gb-grid, .yy-bowls-grid";
+
+    // 1. IntersectionObserver configured to trigger ONLY when content is genuinely visible in viewport
+    if ("IntersectionObserver" in window) {
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              triggerSectionEntrance(entry.target);
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        {
+          threshold: 0.15,
+          rootMargin: "0px 0px -100px 0px"
+        }
+      );
+
+      sections.forEach((sec) => observer.observe(sec));
     }
 
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const sec = entry.target;
-            sec.classList.add("is-revealed", "is-visible");
-            // Mark all cards/panels inside this specific section
-            sec.querySelectorAll(
-              ".pizza-col-panel, .bites-card, .soup-card, .special-plate-col, " +
-              ".platter-card, .chips-meats-card, .salad-plate-col, .standalone-plate-col, " +
-              ".pasta-plate-col, .dessert-card, .jimbo-card, .coffee-card, " +
-              ".cold-drink-bites-card, .tea-jimbo-card, .juice-col-panel, " +
-              ".milkshake-card, .smoothie-cups-cluster-wrap"
-            ).forEach((child) => {
-              child.classList.add("is-revealed", "is-visible");
-            });
-
-            observer.unobserve(sec);
-
-            setTimeout(() => {
-              sec.classList.add("anim-settled");
-            }, 1800);
+    // 2. Viewport visibility checker (Triggers ONLY when section dishes are visibly in view)
+    function checkVisibleSections() {
+      const windowHeight = window.innerHeight;
+      sections.forEach((sec) => {
+        if (!sec.classList.contains("is-revealed")) {
+          const content = sec.querySelector(foodContentSelector);
+          const target = content || sec;
+          const rect = target.getBoundingClientRect();
+          // Only start when the food dishes/items are visibly inside the viewport
+          if (rect.top <= windowHeight - 100 && rect.bottom >= 80) {
+            triggerSectionEntrance(sec);
           }
-        });
-      },
-      {
-        threshold: 0.08,
-        rootMargin: "0px 0px -40px 0px"
-      }
-    );
+        }
+      });
+    }
 
-    sections.forEach((sec) => observer.observe(sec));
+    // Check visible sections on initial load
+    checkVisibleSections();
+
+    // Listen on scroll to fire transitions dynamically as each section becomes visible
+    window.addEventListener("scroll", checkVisibleSections, { passive: true });
   }
 
   // Open Dish Modal
@@ -1352,13 +1384,39 @@
     dishModalEl.classList.add("open");
   }
 
+  // Shareable menu URL (clean: no #hash, works for http/https; fallback for local files)
+  function getShareUrl() {
+    const { protocol, origin, pathname, search } = window.location;
+    if (protocol === "http:" || protocol === "https:") {
+      return origin + pathname + search;
+    }
+    return "https://nanasicafe.co.tz/menu";
+  }
+
+  // Build QR locally (works offline & prints reliably); falls back to web API if library missing
+  function buildQrSrc(url) {
+    if (typeof qrcode === "function") {
+      try {
+        const qr = qrcode(0, "M");
+        qr.addData(url);
+        qr.make();
+        const svg = qr
+          .createSvgTag({ cellSize: 10, margin: 2, scalable: true })
+          .replace(/fill="black"/g, 'fill="#0F3D2E"')
+          .replace(/fill="white"/g, 'fill="#FFFFFF"');
+        return "data:image/svg+xml;charset=utf-8," + encodeURIComponent(svg);
+      } catch (err) {
+        console.warn("Local QR generation failed, using fallback", err);
+      }
+    }
+    return `https://api.qrserver.com/v1/create-qr-code/?size=360x360&margin=8&color=0F3D2E&bgcolor=FFFFFF&data=${encodeURIComponent(url)}`;
+  }
+
   // Open QR Modal
   function openQrModal() {
-    const liveUrl = window.location.href.startsWith("http")
-      ? window.location.href
-      : "https://nanasicafe.co.tz/menu";
+    const liveUrl = getShareUrl();
     const qrImg = document.getElementById("qrImage");
-    qrImg.src = `https://api.qrserver.com/v1/create-qr-code/?size=360x360&margin=8&color=0F3D2E&bgcolor=FFFFFF&data=${encodeURIComponent(liveUrl)}`;
+    qrImg.src = buildQrSrc(liveUrl);
     document.getElementById("qrUrlText").textContent = liveUrl.replace(/^https?:\/\//, "");
     qrModalEl.classList.add("open");
   }
@@ -1682,20 +1740,63 @@
     });
   }
 
+  function copyTextFallback(text) {
+    const ta = document.createElement("textarea");
+    ta.value = text;
+    ta.setAttribute("readonly", "");
+    ta.style.cssText = "position:fixed;top:0;left:0;opacity:0;";
+    document.body.appendChild(ta);
+    ta.select();
+    ta.setSelectionRange(0, text.length);
+    let ok = false;
+    try { ok = document.execCommand("copy"); } catch (err) { ok = false; }
+    document.body.removeChild(ta);
+    return ok;
+  }
+
   document.getElementById("copyLinkBtn").addEventListener("click", (e) => {
-    const url = window.location.href;
-    navigator.clipboard.writeText(url).then(() => {
-      const btn = e.currentTarget;
-      const label = btn.querySelector(".btn-label") || btn;
-      const orig = label.textContent;
-      label.textContent = "COPIED!";
-      btn.style.background = "#18634B";
-      setTimeout(() => {
-        label.textContent = orig;
+    const btn = e.currentTarget;
+    const label = btn.querySelector(".btn-label") || btn;
+    const url = getShareUrl();
+
+    const showState = (text, bg) => {
+      if (!btn.dataset.origLabel) btn.dataset.origLabel = label.textContent;
+      label.textContent = text;
+      btn.style.background = bg;
+      clearTimeout(btn._copyTimer);
+      btn._copyTimer = setTimeout(() => {
+        label.textContent = btn.dataset.origLabel;
         btn.style.background = "";
       }, 1800);
-    });
+    };
+
+    const done = (ok) => (ok ? showState("COPIED!", "#18634B") : showState("PRESS CTRL+C", "#8a5a12"));
+
+    if (navigator.clipboard && window.isSecureContext) {
+      navigator.clipboard.writeText(url).then(() => done(true), () => done(copyTextFallback(url)));
+    } else {
+      done(copyTextFallback(url));
+    }
   });
+
+  // Print: only the QR card is printed (see @media print in styles.css)
+  const printQrBtn = document.getElementById("printQrBtn");
+  if (printQrBtn) {
+    printQrBtn.addEventListener("click", () => {
+      const img = document.getElementById("qrImage");
+      const go = () => {
+        document.body.classList.add("printing-qr");
+        window.print();
+      };
+      if (img && !img.complete) {
+        img.addEventListener("load", go, { once: true });
+        img.addEventListener("error", go, { once: true });
+      } else {
+        go();
+      }
+    });
+    window.addEventListener("afterprint", () => document.body.classList.remove("printing-qr"));
+  }
 
   document.querySelectorAll(".modal-close, .modal-backdrop").forEach((el) => {
     el.addEventListener("click", (e) => {
