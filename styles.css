@@ -1051,35 +1051,41 @@ section[id^="sec-"],
   }
   .topbar-center-nav {
     order: 3;
+    flex: 0 0 100%;
+    min-width: 0;
     width: 100%;
     display: flex;
     align-items: center;
-    justify-content: flex-start;
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-    scrollbar-width: none;
-    gap: 8px;
-    padding: 4px 0 2px;
-  }
-  .topbar-center-nav::-webkit-scrollbar {
-    display: none;
+    justify-content: space-between;
+    gap: 6px;
+    padding: 2px 0;
+    overflow: visible;
   }
   .category-nav-track {
     display: flex;
     align-items: center;
-    gap: 6px;
-    flex-shrink: 0;
+    justify-content: flex-start;
+    flex: 1 1 auto;
+    min-width: 0;
+    gap: 2px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  .category-nav-track::-webkit-scrollbar {
+    display: none;
   }
   .cat-nav-link {
-    padding: 4px 8px;
-    font-size: 0.74rem;
+    flex: 0 0 auto;
+    padding: 4px 7px;
+    font-size: 0.72rem;
     white-space: nowrap;
   }
   .cat-all-btn {
-    margin-left: auto;
-    padding: 5px 11px;
-    font-size: 0.72rem;
-    flex-shrink: 0;
+    flex: 0 0 auto;
+    margin-left: 0;
+    padding: 5px 10px;
+    font-size: 0.7rem;
   }
   .cat-dropdown {
     width: calc(100vw - 32px);
