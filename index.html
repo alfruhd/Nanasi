@@ -12,10 +12,14 @@
   <meta name="description" content="Official Digital Menu of NANASI CAFE (BITE . SIP . SMILE) at Survey Complex, University Road, Dar es Salaam. Built in Nanasi Deep Green, Gold, Brown & Cream." />
   <meta name="theme-color" content="#0F3D2E" />
 
-  <!-- Google Fonts -->
+  <!-- Google Fonts: Asynchronous & Non-Render-Blocking -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Almendra:ital,wght@0,700;1,700&family=Bebas+Neue&family=Cormorant+Garamond:ital,wght@1,700&family=Dancing+Script:wght@700&family=MedievalSharp&family=Pirata+One&family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Almendra:ital,wght@0,700;1,700&family=Bebas+Neue&family=Cormorant+Garamond:ital,wght@1,700&family=Dancing+Script:wght@700&family=MedievalSharp&family=Pirata+One&family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" />
+  <link href="https://fonts.googleapis.com/css2?family=Almendra:ital,wght@0,700;1,700&family=Bebas+Neue&family=Cormorant+Garamond:ital,wght@1,700&family=Dancing+Script:wght@700&family=MedievalSharp&family=Pirata+One&family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
+  <noscript>
+    <link href="https://fonts.googleapis.com/css2?family=Almendra:ital,wght@0,700;1,700&family=Bebas+Neue&family=Cormorant+Garamond:ital,wght@1,700&family=Dancing+Script:wght@700&family=MedievalSharp&family=Pirata+One&family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  </noscript>
 
   <!-- Resource Hints & Preload for Instant Loading -->
   <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
@@ -67,12 +71,13 @@
         splash.classList.add("splash-fade-out");
         setTimeout(function () {
           splash.style.display = "none";
-        }, 500);
+        }, 320);
       }
-      setTimeout(dismissSplash, 1250);
+      setTimeout(dismissSplash, 680);
       window.addEventListener("touchstart", dismissSplash, { once: true, passive: true });
       window.addEventListener("click", dismissSplash, { once: true });
       window.addEventListener("keydown", dismissSplash, { once: true });
+      window.addEventListener("scroll", dismissSplash, { once: true, passive: true });
     })();
   </script>
 
