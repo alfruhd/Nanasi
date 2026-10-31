@@ -1,4 +1,47 @@
 /* ==========================================================================
+   GLOBAL MOBILE TAP & TOUCH HIGHLIGHT FIX
+   Prevents default blue/gray overlay boxes when tapping dishes, plates & buttons
+   ========================================================================== */
+*,
+*::before,
+*::after {
+  -webkit-tap-highlight-color: transparent !important;
+}
+
+img,
+svg,
+a,
+button,
+[data-item-id],
+[data-showcase-sec],
+.bites-card,
+.soup-card,
+.special-plate-col,
+.platter-card,
+.chips-meats-card,
+.salad-plate-col,
+.standalone-plate-col,
+.pasta-plate-col,
+.dessert-card,
+.jimbo-card,
+.coffee-card,
+.cold-drink-bites-card,
+.tea-jimbo-card,
+.juice-col-panel,
+.milkshake-card,
+.pizza-col-panel,
+.smoothie-cup-col,
+.special-dish-row,
+.standalone-dish-row,
+.pasta-dish-row,
+.salad-dish-row {
+  -webkit-tap-highlight-color: transparent !important;
+  -webkit-touch-callout: none !important;
+  user-select: none !important;
+  -webkit-user-select: none !important;
+}
+
+/* ==========================================================================
    LUXURY BRAND SPLASH SCREEN ANIMATION
    Nanasi Deep Green (#0B2B20 / #05140E) & Warm Gold (#E5BA58)
    ========================================================================== */
@@ -4145,13 +4188,18 @@ section[id^="sec-"],
   }
   .salad-dish-row.layout-plate-left .special-orange-price-badge,
   .salad-dish-row.layout-plate-right .special-orange-price-badge {
-    width: 70px;
-    height: 70px;
-    right: -8px !important;
+    width: 58px;
+    height: 58px;
+    right: -6px !important;
     left: auto !important;
   }
+  .salad-dish-row .special-orange-price-badge .badge-curr {
+    font-size: 0.58rem;
+    letter-spacing: 0.05em;
+    margin-bottom: 1px;
+  }
   .salad-dish-row .special-orange-price-badge .badge-val {
-    font-size: 1.05rem;
+    font-size: 0.88rem;
   }
 }
 
@@ -4174,6 +4222,47 @@ section[id^="sec-"],
   .salad-dish-ingredients {
     font-size: 0.78rem;
     line-height: 1.25;
+  }
+  .salad-dish-row.layout-plate-left .special-orange-price-badge,
+  .salad-dish-row.layout-plate-right .special-orange-price-badge {
+    width: 48px;
+    height: 48px;
+    right: -4px !important;
+    left: auto !important;
+  }
+  .salad-dish-row .special-orange-price-badge .badge-curr {
+    font-size: 0.52rem;
+    letter-spacing: 0.04em;
+    margin-bottom: 0;
+  }
+  .salad-dish-row .special-orange-price-badge .badge-val {
+    font-size: 0.76rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .salad-dish-row.layout-plate-right {
+    grid-template-columns: 1fr 100px;
+    gap: 8px;
+  }
+  .salad-dish-row.layout-plate-left {
+    grid-template-columns: 100px 1fr;
+    gap: 8px;
+  }
+  .salad-plate-stage {
+    width: 100px;
+    height: 100px;
+  }
+  .salad-dish-row .special-orange-price-badge {
+    width: 42px;
+    height: 42px;
+    right: -3px !important;
+  }
+  .salad-dish-row .special-orange-price-badge .badge-curr {
+    font-size: 0.46rem;
+  }
+  .salad-dish-row .special-orange-price-badge .badge-val {
+    font-size: 0.70rem;
   }
 }
 
