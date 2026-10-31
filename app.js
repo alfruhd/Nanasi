@@ -1303,10 +1303,10 @@
       child.classList.add("is-revealed", "is-visible");
     });
 
-    // Allow full duration for slow-motion 2.4s spin + staggered delays to complete
+    // Allow duration for swift 1.25s spin / shake + staggered delays to complete
     setTimeout(() => {
       sec.classList.add("anim-settled");
-    }, 4400);
+    }, 1600);
   }
 
   // Smooth, Hardware-Accelerated Scroll Entrance Transitions
@@ -1315,12 +1315,12 @@
       "section[id^='sec-'], .jimbo-hero-section, .dyn-section"
     );
 
-    // Trigger initial sections immediately so there is zero waiting
-    for (let i = 0; i < Math.min(3, sections.length); i++) {
+    // Trigger initial 5 sections immediately so there is zero waiting
+    for (let i = 0; i < Math.min(5, sections.length); i++) {
       triggerSectionEntrance(sections[i]);
     }
 
-    // Hardware-accelerated IntersectionObserver with early lookahead margin (160px)
+    // Hardware-accelerated IntersectionObserver with early 280px lookahead margin
     if ("IntersectionObserver" in window) {
       const observer = new IntersectionObserver(
         (entries) => {
@@ -1333,7 +1333,7 @@
         },
         {
           threshold: 0.02,
-          rootMargin: "0px 0px 180px 0px"
+          rootMargin: "0px 0px 280px 0px"
         }
       );
 
