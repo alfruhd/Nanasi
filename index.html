@@ -20,7 +20,7 @@
   <!-- Resource Hints & Preload for Instant Loading -->
   <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
   <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
-  <link rel="preload" href="assets/dishes/swahili_breakfast_black_plate.png" as="image" fetchpriority="high" />
+  <link rel="preload" href="assets/dishes/swahili_breakfast_black_plate.webp" as="image" type="image/webp" fetchpriority="high" />
   <link rel="preload" href="app.js" as="script" />
   <link rel="stylesheet" href="styles.css" />
 </head>
@@ -189,7 +189,7 @@
               <div class="hero-plate-spinner">
                 <img
                   id="heroPlateImgA"
-                  src="assets/dishes/swahili_breakfast_black_plate.png"
+                  src="assets/dishes/swahili_breakfast_black_plate.webp"
                   alt="Nanasi Cafe Authentic Swahili Breakfast Feast"
                   class="hero-plate-img active"
                   fetchpriority="high"
@@ -197,7 +197,7 @@
                 />
                 <img
                   id="heroPlateImgB"
-                  src="assets/dishes/special_english_breakfast.png"
+                  src="assets/dishes/special_english_breakfast.webp"
                   alt="Nanasi Cafe Breakfast Special"
                   class="hero-plate-img"
                 />
@@ -303,9 +303,10 @@
     </div>
   </div>
 
-  <script src="assets/vendor/qrcode.js"></script>
-  <script src="menu-data.js"></script>
-  <script src="firebase-config.js"></script>
-  <script src="menu-loader.js"></script>
+  <script src="assets/vendor/qrcode.js" defer></script>
+  <script src="menu-data.js" defer></script>
+  <script src="firebase-config.js" defer></script>
+  <script src="menu-loader.js" defer></script>
+  <script src="app.js" defer></script>
 </body>
 </html>

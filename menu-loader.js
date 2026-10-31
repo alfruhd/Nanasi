@@ -11,9 +11,17 @@
       document.head.appendChild(s);
     });
   }
-  function startApp() { loadScript("app.js"); }
+  function startApp() {
+    if (window.__NANASI_APP_STARTED__) return;
+    window.__NANASI_APP_STARTED__ = true;
+    if (typeof initNanasiMenuApp === "function") {
+      initNanasiMenuApp();
+    } else if (!document.querySelector("script[src="app.js"]")) {
+      loadScript("app.js");
+    }
+  }
 
-  if (!cfg.apiKey) return startApp();
+  if (!cfg.apiKey) return;
 
   var base = "https://www.gstatic.com/firebasejs/" + FB_VER + "/";
   var timeout = new Promise(function (_, rej) { setTimeout(function () { rej(new Error("timeout")); }, 4000); });

@@ -48,7 +48,7 @@
           <div class="jimbo-tile ${variant}" data-spot-sec="${sp.secId}" data-spot-item="${sp.id}">
             <div class="jimbo-title">${sp.title}</div>
             <div class="jimbo-bowl-wrap">
-              <img class="jimbo-bowl-img" src="${sp.image}" alt="${sp.title}" loading="lazy" />
+              <img class="jimbo-bowl-img" src="${sp.image}" alt="${sp.title}" loading="lazy" decoding="async" onerror="this.onerror=null;if(this.src.endsWith('.webp'))this.src=this.src.replace(/\.webp$/,'.png');" />
             </div>
             <span class="jimbo-price">TSH ${formatPrice(sp.price)}</span>
           </div>
@@ -317,7 +317,7 @@
 
                   <!-- Left Ceramic Dish Plate (Partially Cropped & Overflowing on Left Rim with Realistic Shadows) -->
                   <div class="bites-plate-wrapper">
-                    <img src="${item.image}" alt="${item.name}" class="bites-dish-img" loading="lazy" />
+                    <img src="${item.image}" alt="${item.name}" class="bites-dish-img" loading="lazy" decoding="async" onerror="this.onerror=null;if(this.src.endsWith('.webp'))this.src=this.src.replace(/\.webp$/,'.png');" />
                   </div>
 
                   <!-- Right Info Section: Stacked Bold Uppercase Title, Flavor Descriptors, Bold Price -->
@@ -369,7 +369,7 @@
                 <article class="coffee-card ${rowClass} coffee-card-${idx}" data-item-id="${item.id}" data-sec-id="${sec.id}">
                   <!-- Stage with Coffee Cup & Overlapping Circular Orange Price Badge -->
                   <div class="coffee-cup-stage">
-                    <img src="${item.image}" alt="${item.name}" class="coffee-cup-img" loading="lazy" />
+                    <img src="${item.image}" alt="${item.name}" class="coffee-cup-img" loading="lazy" decoding="async" onerror="this.onerror=null;if(this.src.endsWith('.webp'))this.src=this.src.replace(/\.webp$/,'.png');" />
                     <!-- Overlapping Circular Price Badge matching SALAD / Nanasi Special -->
                     <div class="special-orange-price-badge coffee-orange-badge">
                       <span class="badge-curr">${sec.priceHeader || "TSH"}</span>
@@ -412,7 +412,7 @@
 
                   <!-- Plate Stage (Overlapping Top of the Card, Static - Zero Motion) -->
                   <div class="soup-plate-wrapper">
-                    <img src="${item.image}" alt="${item.name}" class="soup-static-plate" loading="lazy" />
+                    <img src="${item.image}" alt="${item.name}" class="soup-static-plate" loading="lazy" decoding="async" onerror="this.onerror=null;if(this.src.endsWith('.webp'))this.src=this.src.replace(/\.webp$/,'.png');" />
                   </div>
 
                   <!-- Card Body Below Plate: Centered Uppercase Title, Description & Price -->
@@ -460,7 +460,7 @@
               const plateHtml = `
                 <div class="special-plate-col">
                   <div class="special-plate-stage">
-                    <img src="${item.image}" alt="${item.name}" class="special-dish-plate" loading="lazy" />
+                    <img src="${item.image}" alt="${item.name}" class="special-dish-plate" loading="lazy" decoding="async" onerror="this.onerror=null;if(this.src.endsWith('.webp'))this.src=this.src.replace(/\.webp$/,'.png');" />
                     <!-- Overlapping Orange Circular Price Badge -->
                     <div class="special-orange-price-badge">
                       <span class="badge-curr">${sec.priceHeader || "TSH"}</span>
@@ -521,7 +521,7 @@
 
                   <!-- Plate Stage (Overlapping Top of the Card, Static - Zero Motion) -->
                   <div class="platter-plate-wrapper">
-                    <img src="${item.image}" alt="${item.name}" class="platter-static-plate" loading="lazy" />
+                    <img src="${item.image}" alt="${item.name}" class="platter-static-plate" loading="lazy" decoding="async" onerror="this.onerror=null;if(this.src.endsWith('.webp'))this.src=this.src.replace(/\.webp$/,'.png');" />
                   </div>
 
                   <!-- Card Body Below Plate: Centered Uppercase Title, Description & Price -->
@@ -573,7 +573,7 @@
 
                   <!-- Right: Circular Dish Photography -->
                   <div class="chips-meats-image-wrapper">
-                    <img src="${item.image}" alt="${item.name}" class="chips-meats-plate" loading="lazy" />
+                    <img src="${item.image}" alt="${item.name}" class="chips-meats-plate" loading="lazy" decoding="async" onerror="this.onerror=null;if(this.src.endsWith('.webp'))this.src=this.src.replace(/\.webp$/,'.png');" />
                   </div>
                 </div>
               `;
@@ -613,7 +613,7 @@
               const plateHtml = `
                 <div class="salad-plate-col">
                   <div class="salad-plate-stage">
-                    <img src="${item.image}" alt="${item.name}" class="salad-dish-plate" loading="lazy" />
+                    <img src="${item.image}" alt="${item.name}" class="salad-dish-plate" loading="lazy" decoding="async" onerror="this.onerror=null;if(this.src.endsWith('.webp'))this.src=this.src.replace(/\.webp$/,'.png');" />
                     <!-- Overlapping Circular Price Badge in NANASI SPECIAL style -->
                     <div class="special-orange-price-badge">
                       <span class="badge-curr">${sec.priceHeader || "TSH"}</span>
@@ -655,7 +655,7 @@
                   <!-- Left: Ceramic Plate Stage with Overlapping Vibrant Orange Price Badge -->
                   <div class="standalone-plate-col">
                     <div class="standalone-plate-stage">
-                      <img src="${item.image}" alt="${item.name}" class="standalone-dish-plate" loading="lazy" />
+                      <img src="${item.image}" alt="${item.name}" class="standalone-dish-plate" loading="lazy" decoding="async" onerror="this.onerror=null;if(this.src.endsWith('.webp'))this.src=this.src.replace(/\.webp$/,'.png');" />
                       <div class="standalone-orange-price-badge">
                         <span class="standalone-badge-currency">${sec.priceHeader || "TSH"}</span>
                         <span class="standalone-badge-amount">${formatPrice(item.price)}</span>
@@ -698,7 +698,7 @@
                 <div class="pizza-col-panel" data-item-id="${item.id}" data-sec-id="${sec.id}">
                   <!-- Top Half-View Pizza Stage with Corner Oval Price Badge (Exact to Attachment) -->
                   <div class="pizza-half-stage">
-                    <img src="${item.image}" alt="${item.name}" class="pizza-half-dish" loading="lazy" />
+                    <img src="${item.image}" alt="${item.name}" class="pizza-half-dish" loading="lazy" decoding="async" onerror="this.onerror=null;if(this.src.endsWith('.webp'))this.src=this.src.replace(/\.webp$/,'.png');" />
                     <div class="pizza-price-oval">
                       <span class="pizza-price-cur">${sec.priceHeader || "TSH"}</span>
                       <span class="pizza-price-num">${priceText}</span>
@@ -751,7 +751,7 @@
             <!-- Right Column: Plate with Overlapping Circular Price Badge -->
             <div class="pasta-plate-col">
               <div class="pasta-plate-stage">
-                <img src="${item.image}" alt="${item.name}" class="pasta-dish-plate" loading="lazy" />
+                <img src="${item.image}" alt="${item.name}" class="pasta-dish-plate" loading="lazy" decoding="async" onerror="this.onerror=null;if(this.src.endsWith('.webp'))this.src=this.src.replace(/\.webp$/,'.png');" />
                 <!-- Overlapping Orange Circular Price Badge -->
                 <div class="special-orange-price-badge">
                   <span class="badge-curr">${sec.priceHeader || "TSH"}</span>
@@ -791,7 +791,7 @@
 
                   <!-- Plate Stage (Overlapping Top of the Card, Static - Zero Motion) -->
                   <div class="dessert-plate-wrapper">
-                    <img src="${item.image}" alt="${item.name}" class="dessert-plate-img" loading="lazy" />
+                    <img src="${item.image}" alt="${item.name}" class="dessert-plate-img" loading="lazy" decoding="async" onerror="this.onerror=null;if(this.src.endsWith('.webp'))this.src=this.src.replace(/\.webp$/,'.png');" />
                   </div>
 
                   <!-- Card Body Below Plate: Centered Uppercase Title, Description & Bold Price -->
@@ -857,7 +857,7 @@
 
                   <!-- Centered Teacup Dish Presentation -->
                   <div class="tea-jimbo-stage">
-                    <img src="${item.image}" alt="${item.name}" class="tea-dish-cup" loading="lazy" />
+                    <img src="${item.image}" alt="${item.name}" class="tea-dish-cup" loading="lazy" decoding="async" onerror="this.onerror=null;if(this.src.endsWith('.webp'))this.src=this.src.replace(/\.webp$/,'.png');" />
                     <!-- Nanasi Special Circular Orange Price Badge -->
                     <div class="tea-price-badge">
                       <span class="tea-price-cur">${sec.priceHeader || "TSH"}</span>
@@ -900,7 +900,7 @@
 
           <!-- Left Dish/Glass Stage: Precision Cutout Tall Glass Standing Proudly on Left -->
           <div class="cold-drink-glass-wrapper">
-            <img src="${item.image}" alt="${item.name}" class="cold-drink-glass-img" loading="lazy" />
+            <img src="${item.image}" alt="${item.name}" class="cold-drink-glass-img" loading="lazy" decoding="async" onerror="this.onerror=null;if(this.src.endsWith('.webp'))this.src=this.src.replace(/\.webp$/,'.png');" />
           </div>
 
           <!-- Right Content Stage (Right-Aligned per Reference Attachment) -->
@@ -964,7 +964,7 @@
                 <div class="pizza-col-panel juice-col-panel" data-item-id="${item.id}" data-sec-id="${sec.id}">
                   <!-- Top Stage with Dish Photography (Pristine transparent cups) -->
                   <div class="juice-dish-stage">
-                    <img src="${item.image}" alt="${item.name}" class="juice-dish-cup" loading="lazy" />
+                    <img src="${item.image}" alt="${item.name}" class="juice-dish-cup" loading="lazy" decoding="async" onerror="this.onerror=null;if(this.src.endsWith('.webp'))this.src=this.src.replace(/\.webp$/,'.png');" />
                   </div>
 
                   <!-- Details Below Aligned to Left with Full Price Labeled Below Description -->
@@ -1025,7 +1025,7 @@
 
                   <!-- Dynamic Milkshake Stage with Overlapping Circular Orange Price Badge -->
                   <div class="milkshake-stage">
-                    <img src="${item.image}" alt="${item.name}" class="milkshake-img" loading="lazy" />
+                    <img src="${item.image}" alt="${item.name}" class="milkshake-img" loading="lazy" decoding="async" onerror="this.onerror=null;if(this.src.endsWith('.webp'))this.src=this.src.replace(/\.webp$/,'.png');" />
                     <!-- Overlapping Circular Price Badge matching SALAD / Nanasi Special -->
                     <div class="special-orange-price-badge milkshake-orange-badge">
                       <span class="badge-curr">${sec.priceHeader || "TSH"}</span>
@@ -1105,7 +1105,7 @@
   // ARCHETYPE A: Attachment 7 (CheckCheck) — Alternating Rounded Pill Stage + Scalloped Price Badges
   function renderArchetypeCheckCheck(sec, items, idx) {
     const isReverse = idx % 8 === 4;
-    const plateHtml = `<img class="cc-plate-circle" src="${sec.bannerImage}" alt="${sec.title}" data-showcase-sec="${sec.id}" loading="lazy" />`;
+    const plateHtml = `<img class="cc-plate-circle" src="${sec.bannerImage}" alt="${sec.title}" data-showcase-sec="${sec.id}" loading="lazy" decoding="async" onerror="this.onerror=null;if(this.src.endsWith('.webp'))this.src=this.src.replace(/\.webp$/,'.png');" />`;
     const bodyHtml = `
       <div>
         <div class="cc-title-row">
@@ -1119,7 +1119,7 @@
               (item) => `
             <div class="cc-item-card" data-item-id="${item.id}" data-sec-id="${sec.id}">
               <div class="cc-item-left">
-                <img class="cc-mini-thumb" src="${item.image}" alt="${item.name}" loading="lazy" />
+                <img class="cc-mini-thumb" src="${item.image}" alt="${item.name}" loading="lazy" decoding="async" onerror="this.onerror=null;if(this.src.endsWith('.webp'))this.src=this.src.replace(/\.webp$/,'.png');" />
                 <div>
                   <div class="cc-item-name">${item.name}</div>
                   ${item.subtitle ? `<div class="cc-item-sub">${item.subtitle}</div>` : ""}
@@ -1161,7 +1161,7 @@
             .map(
               (item) => `
             <li class="bc-leader-row" data-item-id="${item.id}" data-sec-id="${sec.id}">
-              <img class="bc-thumb" src="${item.image}" alt="${item.name}" loading="lazy" />
+              <img class="bc-thumb" src="${item.image}" alt="${item.name}" loading="lazy" decoding="async" onerror="this.onerror=null;if(this.src.endsWith('.webp'))this.src=this.src.replace(/\.webp$/,'.png');" />
               <div class="bc-row-main">
                 <div class="bc-name-dots">
                   <span class="bc-item-name">${item.name}</span>
@@ -1180,10 +1180,10 @@
 
     const plateCol = `
       <div class="bc-floating-showcase">
-        <img class="bc-showcase-plate" src="${sec.bannerImage}" alt="${sec.title}" data-showcase-sec="${sec.id}" loading="lazy" />
+        <img class="bc-showcase-plate" src="${sec.bannerImage}" alt="${sec.title}" data-showcase-sec="${sec.id}" loading="lazy" decoding="async" onerror="this.onerror=null;if(this.src.endsWith('.webp'))this.src=this.src.replace(/\.webp$/,'.png');" />
         ${
           items.length > 3
-            ? `<img class="bc-showcase-plate" style="width:140px;height:140px;margin-top:-24px;border-color:var(--nanasi-cream);" src="${showcaseImg}" alt="${sec.title}" data-showcase-sec="${sec.id}" loading="lazy" />`
+            ? `<img class="bc-showcase-plate" style="width:140px;height:140px;margin-top:-24px;border-color:var(--nanasi-cream);" src="${showcaseImg}" alt="${sec.title}" data-showcase-sec="${sec.id}" loading="lazy" decoding="async" onerror="this.onerror=null;if(this.src.endsWith('.webp'))this.src=this.src.replace(/\.webp$/,'.png');" />`
             : ""
         }
       </div>
@@ -1212,15 +1212,15 @@
       <section class="dyn-section archetype-gourmetboss reveal-on-scroll" id="sec-${sec.id}" data-section-id="${sec.id}">
         <div class="gb-grid">
           <div class="gb-vertical-ribbon">
-            <img class="gb-ribbon-plate" src="${sec.bannerImage}" alt="${sec.title}" data-showcase-sec="${sec.id}" loading="lazy" />
+            <img class="gb-ribbon-plate" src="${sec.bannerImage}" alt="${sec.title}" data-showcase-sec="${sec.id}" loading="lazy" decoding="async" onerror="this.onerror=null;if(this.src.endsWith('.webp'))this.src=this.src.replace(/\.webp$/,'.png');" />
             ${
               items.length > 2
-                ? `<img class="gb-ribbon-plate" src="${secondImg}" alt="${sec.title}" data-showcase-sec="${sec.id}" loading="lazy" />`
+                ? `<img class="gb-ribbon-plate" src="${secondImg}" alt="${sec.title}" data-showcase-sec="${sec.id}" loading="lazy" decoding="async" onerror="this.onerror=null;if(this.src.endsWith('.webp'))this.src=this.src.replace(/\.webp$/,'.png');" />`
                 : ""
             }
             ${
               items.length > 5
-                ? `<img class="gb-ribbon-plate" src="${thirdImg}" alt="${sec.title}" data-showcase-sec="${sec.id}" loading="lazy" />`
+                ? `<img class="gb-ribbon-plate" src="${thirdImg}" alt="${sec.title}" data-showcase-sec="${sec.id}" loading="lazy" decoding="async" onerror="this.onerror=null;if(this.src.endsWith('.webp'))this.src=this.src.replace(/\.webp$/,'.png');" />`
                 : ""
             }
           </div>
@@ -1233,7 +1233,7 @@
                 .map(
                   (item) => `
                 <li class="gb-row" data-item-id="${item.id}" data-sec-id="${sec.id}">
-                  <img class="gb-row-thumb" src="${item.image}" alt="${item.name}" loading="lazy" />
+                  <img class="gb-row-thumb" src="${item.image}" alt="${item.name}" loading="lazy" decoding="async" onerror="this.onerror=null;if(this.src.endsWith('.webp'))this.src=this.src.replace(/\.webp$/,'.png');" />
                   <div class="gb-row-info">
                     <div class="gb-row-top">
                       <span class="gb-row-name">${item.name}</span>
@@ -1268,7 +1268,7 @@
                 (item) => `
               <article class="yy-bowl-card" data-item-id="${item.id}" data-sec-id="${sec.id}">
                 <div class="yy-ceramic-bowl">
-                  <img src="${item.image}" alt="${item.name}" loading="lazy" />
+                  <img src="${item.image}" alt="${item.name}" loading="lazy" decoding="async" onerror="this.onerror=null;if(this.src.endsWith('.webp'))this.src=this.src.replace(/\.webp$/,'.png');" />
                 </div>
                 <div class="yy-card-info">
                   <div class="yy-card-name">${item.name}</div>
@@ -1309,21 +1309,18 @@
     }, 4400);
   }
 
-  // Precise Scroll-Triggered Entrance Transitions per Section (Starts ONLY when sections are visible)
+  // Smooth, Hardware-Accelerated Scroll Entrance Transitions
   function observeScrollAnimations() {
     const sections = document.querySelectorAll(
       "section[id^='sec-'], .jimbo-hero-section, .dyn-section"
     );
 
-    const foodContentSelector =
-      ".bites-cards-grid, .soup-cards-grid, .platters-cards-grid, " +
-      ".pizza-endless-grid, .cold-drinks-stream-grid, .chips-meats-grid, " +
-      ".salad-dish-row, .salad-plate-stage, .standalone-dish-row, .standalone-plate-stage, " +
-      ".pasta-dish-container, .desserts-cards-grid, .tea-jimbo-grid, " +
-      ".coffee-cards-grid, .milkshake-cards-grid, .smoothie-showcase-stage, " +
-      ".smoothie-cups-grid, .cc-items-grid, .bc-content-grid, .gb-grid, .yy-bowls-grid";
+    // Trigger initial sections immediately so there is zero waiting
+    for (let i = 0; i < Math.min(3, sections.length); i++) {
+      triggerSectionEntrance(sections[i]);
+    }
 
-    // 1. IntersectionObserver configured to trigger ONLY when content is genuinely visible in viewport
+    // Hardware-accelerated IntersectionObserver with early lookahead margin (160px)
     if ("IntersectionObserver" in window) {
       const observer = new IntersectionObserver(
         (entries) => {
@@ -1335,35 +1332,20 @@
           });
         },
         {
-          threshold: 0.15,
-          rootMargin: "0px 0px -100px 0px"
+          threshold: 0.02,
+          rootMargin: "0px 0px 180px 0px"
         }
       );
 
-      sections.forEach((sec) => observer.observe(sec));
-    }
-
-    // 2. Viewport visibility checker (Triggers ONLY when section dishes are visibly in view)
-    function checkVisibleSections() {
-      const windowHeight = window.innerHeight;
       sections.forEach((sec) => {
         if (!sec.classList.contains("is-revealed")) {
-          const content = sec.querySelector(foodContentSelector);
-          const target = content || sec;
-          const rect = target.getBoundingClientRect();
-          // Only start when the food dishes/items are visibly inside the viewport
-          if (rect.top <= windowHeight - 100 && rect.bottom >= 80) {
-            triggerSectionEntrance(sec);
-          }
+          observer.observe(sec);
         }
       });
+    } else {
+      // Fallback for older browsers
+      sections.forEach((sec) => triggerSectionEntrance(sec));
     }
-
-    // Check visible sections on initial load
-    checkVisibleSections();
-
-    // Listen on scroll to fire transitions dynamically as each section becomes visible
-    window.addEventListener("scroll", checkVisibleSections, { passive: true });
   }
 
   // Open Dish Modal

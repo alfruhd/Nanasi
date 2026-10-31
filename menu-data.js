@@ -22,7 +22,7 @@ window.NANASI_MENU = {
       title: "SWAHILI BREAKFAST",
       price: 12000,
       theme: "orange",
-      image: "assets/dishes/pdf_breakfast_special.jpg"
+      image: "assets/dishes/pdf_breakfast_special.webp"
     },
     {
       id: "chicken-chips",
@@ -31,7 +31,7 @@ window.NANASI_MENU = {
       title: "CHICKEN & CHIPS",
       price: 9000,
       theme: "yellow",
-      image: "assets/dishes/pdf_chicken_chips.jpg"
+      image: "assets/dishes/pdf_chicken_chips.webp"
     },
     {
       id: "mixed-meat-pizza",
@@ -40,7 +40,7 @@ window.NANASI_MENU = {
       title: "MIXED MEAT PIZZA",
       price: 20000,
       theme: "red",
-      image: "assets/dishes/pdf_pizza_whole.jpg"
+      image: "assets/dishes/pdf_pizza_whole.webp"
     },
     {
       id: "beef-changamoto",
@@ -49,7 +49,7 @@ window.NANASI_MENU = {
       title: "BEEF CHANGAMOTO",
       price: 12000,
       theme: "orange",
-      image: "assets/dishes/beef_changamoto.jpg"
+      image: "assets/dishes/beef_changamoto.webp"
     },
     {
       id: "chocolate-cake",
@@ -58,7 +58,7 @@ window.NANASI_MENU = {
       title: "CHOCOLATE CAKE",
       price: 8000,
       theme: "red",
-      image: "assets/dishes/dessert_chocolate_cake.png?v=8"
+      image: "assets/dishes/dessert_chocolate_cake.webp?v=8"
     },
     {
       id: "oreo-milkshake",
@@ -67,7 +67,7 @@ window.NANASI_MENU = {
       title: "OREO MILKSHAKE",
       price: 10000,
       theme: "yellow",
-      image: "assets/dishes/oreo_milkshake.jpg"
+      image: "assets/dishes/oreo_milkshake.webp"
     }
   ],
 
@@ -80,7 +80,7 @@ window.NANASI_MENU = {
       priceHeader: "TSH",
       itemHeader: "ITEM",
       accent: "green",
-      bannerImage: "assets/dishes/bites_chapati.png",
+      bannerImage: "assets/dishes/bites_chapati.webp",
       items: [
         {
           id: "chapati-portion",
@@ -89,7 +89,7 @@ window.NANASI_MENU = {
           price: 2000,
           subtitle: "Soft, flaky, golden-layered East African flatbread",
           descriptors: ["Soft & flaky", "Golden-layered", "East African classic"],
-          image: "assets/dishes/bites_chapati.png"
+          image: "assets/dishes/bites_chapati.webp"
         },
         {
           id: "sambusa-portion",
@@ -98,7 +98,7 @@ window.NANASI_MENU = {
           price: 4000,
           subtitle: "Golden triangular pastries filled with spiced minced beef",
           descriptors: ["Crispy golden", "Spiced minced beef", "Savory bite"],
-          image: "assets/dishes/bites_sambusa.png"
+          image: "assets/dishes/bites_sambusa.webp"
         },
         {
           id: "kebabu-portion",
@@ -107,7 +107,7 @@ window.NANASI_MENU = {
           price: 3000,
           subtitle: "Juicy seasoned minced beef kebabs fried golden",
           descriptors: ["Juicy seasoned", "Smoky flame-grilled", "Minced beef"],
-          image: "assets/dishes/bites_kebab.png"
+          image: "assets/dishes/bites_kebab.webp"
         },
         {
           id: "sausage-russian-portion",
@@ -116,7 +116,7 @@ window.NANASI_MENU = {
           price: 6000,
           subtitle: "Hearty smoked Russian sausage grilled juicy",
           descriptors: ["Hearty smoked", "Russian recipe", "Grilled succulent"],
-          image: "assets/dishes/bites_sausage_russian.png"
+          image: "assets/dishes/bites_sausage_russian.webp"
         },
         {
           id: "sausage-vienna-portion",
@@ -125,7 +125,7 @@ window.NANASI_MENU = {
           price: 2000,
           subtitle: "Tender Vienna beef sausage portion",
           descriptors: ["Tender beef", "Classic Vienna", "Savory grill"],
-          image: "assets/dishes/bites_sausage_vienna.png"
+          image: "assets/dishes/bites_sausage_vienna.webp"
         },
         {
           id: "waffle-portion",
@@ -134,7 +134,7 @@ window.NANASI_MENU = {
           price: 6000,
           subtitle: "Warm golden Belgian waffle portion",
           descriptors: ["Warm golden", "Belgian style", "Crisp honeycomb"],
-          image: "assets/dishes/bites_waffle.png"
+          image: "assets/dishes/bites_waffle.webp"
         },
         {
           id: "avocado-toast",
@@ -143,7 +143,7 @@ window.NANASI_MENU = {
           price: 5000,
           subtitle: "Toasted artisan bread topped with ripe smashed avocado",
           descriptors: ["Creamy smashed", "Artisan toasted", "Fresh produce"],
-          image: "assets/dishes/bites_avocado_toast.png"
+          image: "assets/dishes/bites_avocado_toast.webp"
         },
         {
           id: "kachori-portion",
@@ -152,7 +152,7 @@ window.NANASI_MENU = {
           price: 3000,
           subtitle: "Crispy spiced potato balls in a golden batter",
           descriptors: ["Crispy spiced", "Golden batter", "Swahili snack"],
-          image: "assets/dishes/bites_kachori.png"
+          image: "assets/dishes/bites_kachori.webp"
         },
         {
           id: "maharage",
@@ -161,7 +161,7 @@ window.NANASI_MENU = {
           price: 2000,
           subtitle: "Creamy red kidney beans simmered in rich coconut milk",
           descriptors: ["Creamy coconut", "Simmered red beans", "Traditional"],
-          image: "assets/dishes/bites_maharage.png"
+          image: "assets/dishes/bites_maharage.webp"
         }
       ]
     },
@@ -172,7 +172,7 @@ window.NANASI_MENU = {
       priceHeader: "TSH",
       itemHeader: "ITEM",
       accent: "green",
-      bannerImage: "assets/dishes/soup_chicken.png",
+      bannerImage: "assets/dishes/soup_chicken.webp",
       items: [
         {
           id: "beef-soup",
@@ -181,7 +181,7 @@ window.NANASI_MENU = {
           price: 6000,
           subtitle: "Slow-simmered beef broth with tender cuts & herbs",
           descriptors: ["Slow-simmered tender beef", "Aromatic herbal broth", "Root vegetables & parsley"],
-          image: "assets/dishes/soup_beef.png"
+          image: "assets/dishes/soup_beef.webp"
         },
         {
           id: "free-range-chicken",
@@ -190,7 +190,7 @@ window.NANASI_MENU = {
           price: 12000,
           subtitle: "Authentic local free-range chicken soup (Supu ya Kuku)",
           descriptors: ["Local free-range chicken", "Golden nourishing broth", "Tender carrots & herbs"],
-          image: "assets/dishes/soup_chicken.png"
+          image: "assets/dishes/soup_chicken.webp"
         },
         {
           id: "pumpkin-soup",
@@ -199,7 +199,7 @@ window.NANASI_MENU = {
           price: 6000,
           subtitle: "Minced beef meat & rich pumpkin puree",
           descriptors: ["Golden velvety pumpkin", "Savory minced beef", "Toasted pumpkin seeds"],
-          image: "assets/dishes/soup_pumpkin.png"
+          image: "assets/dishes/soup_pumpkin.webp"
         }
       ]
     },
@@ -210,7 +210,7 @@ window.NANASI_MENU = {
       priceHeader: "TSH",
       itemHeader: "ITEM",
       accent: "yellow",
-      bannerImage: "assets/dishes/special_swahili_breakfast.png",
+      bannerImage: "assets/dishes/special_swahili_breakfast.webp",
       items: [
         {
           id: "swahili-breakfast",
@@ -219,7 +219,7 @@ window.NANASI_MENU = {
           price: 12000,
           subtitle: "Chapati, maharage (beans), kachori, meat Changamoto (beef/chicken) & tea (milk/black)",
           descriptors: ["Folded Chapati & Beans", "Golden Kachori", "Tender Beef Changamoto", "Hot Tea Included"],
-          image: "assets/dishes/special_swahili_breakfast.png"
+          image: "assets/dishes/special_swahili_breakfast.webp"
         },
         {
           id: "english-breakfast",
@@ -228,7 +228,7 @@ window.NANASI_MENU = {
           price: 18000,
           subtitle: "Toast, mushroom, tomatoes, beans, sausage Russian, eggs and tea (milk/black)",
           descriptors: ["Toasted Bread & Eggs", "Grilled Russian Sausage", "Baked Beans & Mushrooms", "Hot Tea Included"],
-          image: "assets/dishes/special_english_breakfast.png"
+          image: "assets/dishes/special_english_breakfast.webp"
         },
         {
           id: "healthy-breakfast",
@@ -237,7 +237,7 @@ window.NANASI_MENU = {
           price: 15000,
           subtitle: "Poached egg, veggie, kachori, okra, seasonal fruit, meat sausage & tea (milk/black)",
           descriptors: ["Poached Farm Eggs", "Sautéed Spinach & Okra", "Fresh Tropical Fruits", "Hot Tea Included"],
-          image: "assets/dishes/special_healthy_breakfast.png"
+          image: "assets/dishes/special_healthy_breakfast.webp"
         }
       ]
     },
@@ -248,7 +248,7 @@ window.NANASI_MENU = {
       priceHeader: "TSH",
       itemHeader: "ITEM",
       accent: "orange",
-      bannerImage: "assets/dishes/platter_two_dish.png",
+      bannerImage: "assets/dishes/platter_two_dish.webp",
       items: [
         {
           id: "platter-one",
@@ -256,7 +256,7 @@ window.NANASI_MENU = {
           displayTitle: ["PLATTER", "ONE"],
           price: 8000,
           subtitle: "Beef Soup with chapati portion",
-          image: "assets/dishes/platter_one_dish.png"
+          image: "assets/dishes/platter_one_dish.webp"
         },
         {
           id: "platter-two",
@@ -264,7 +264,7 @@ window.NANASI_MENU = {
           displayTitle: ["PLATTER", "TWO"],
           price: 12000,
           subtitle: "Kebab portion, Sambusa portion, kachori portion & Sausage Vienna portion",
-          image: "assets/dishes/platter_two_dish.png"
+          image: "assets/dishes/platter_two_dish.webp"
         }
       ]
     },
@@ -275,63 +275,63 @@ window.NANASI_MENU = {
       priceHeader: "TSH",
       itemHeader: "ITEM",
       accent: "red",
-      bannerImage: "assets/dishes/chicken_chips_dish.png",
+      bannerImage: "assets/dishes/chicken_chips_dish.webp",
       items: [
         {
           id: "chicken-chips",
           name: "Chicken Chips",
           price: 9000,
           subtitle: "Crispy golden chicken strips served with french fries & signature dip",
-          image: "assets/dishes/chicken_chips_dish.png"
+          image: "assets/dishes/chicken_chips_dish.webp"
         },
         {
           id: "sausage-chips",
           name: "Sausage & Chips",
           price: 7000,
           subtitle: "Grilled Russian sausage served with hot golden chips & dipping sauce",
-          image: "assets/dishes/sausage_chips_dish.png"
+          image: "assets/dishes/sausage_chips_dish.webp"
         },
         {
           id: "chips-yai",
           name: "Chips Yai",
           price: 7000,
           subtitle: "Iconic Tanzanian french fry omelette served with fresh kachumbari & chili",
-          image: "assets/dishes/chips_yai_dish.png"
+          image: "assets/dishes/chips_yai_dish.webp"
         },
         {
           id: "fish-chips",
           name: "Fish & Chips",
           price: 15000,
           subtitle: "Golden battered Sangara fish portion served with thick chips & garden salad",
-          image: "assets/dishes/fish_chips_dish.png"
+          image: "assets/dishes/fish_chips_dish.webp"
         },
         {
           id: "fried-kalamari-chips",
           name: "Fried Kalamari & Chips",
           price: 22000,
           subtitle: "Crispy tender kalamari rings served with golden chips & fresh side salad",
-          image: "assets/dishes/fried_kalamari_dish.png"
+          image: "assets/dishes/fried_kalamari_dish.webp"
         },
         {
           id: "beef-changamoto",
           name: "Beef Changamoto",
           price: 12000,
           subtitle: "Sautéed tender beef cubes in rich spice, served with chips & fresh kachumbari",
-          image: "assets/dishes/beef_changamoto_dish.png"
+          image: "assets/dishes/beef_changamoto_dish.webp"
         },
         {
           id: "half-chicken-changamoto",
           name: "1/2 Chicken Changamoto",
           price: 12000,
           subtitle: "Half tender chicken simmered in spiced savory sauce with chips & fresh salad",
-          image: "assets/dishes/half_chicken_dish.png"
+          image: "assets/dishes/half_chicken_dish.webp"
         },
         {
           id: "full-chicken-changamoto",
           name: "Full Chicken Changamoto",
           price: 24000,
           subtitle: "Whole spiced roast chicken served with golden chips & garden salad",
-          image: "assets/dishes/full_chicken_dish.png"
+          image: "assets/dishes/full_chicken_dish.webp"
         }
       ]
     },
@@ -342,35 +342,35 @@ window.NANASI_MENU = {
       priceHeader: "TSH",
       itemHeader: "ITEM",
       accent: "yellow",
-      bannerImage: "assets/dishes/salad_beef.png",
+      bannerImage: "assets/dishes/salad_beef.webp",
       items: [
         {
           id: "beef-salad",
           name: "Beef Salad",
           price: 15000,
           subtitle: "Beef, lettuce, onion, black olives, bell pepper & dressing",
-          image: "assets/dishes/salad_beef.png"
+          image: "assets/dishes/salad_beef.webp"
         },
         {
           id: "chicken-salad",
           name: "Chicken Salad",
           price: 15000,
           subtitle: "Chicken, lettuce, onion, olives, carrots & dressing",
-          image: "assets/dishes/salad_chicken.png"
+          image: "assets/dishes/salad_chicken.webp"
         },
         {
           id: "beef-nachos",
           name: "Beef Nachos",
           price: 15000,
           subtitle: "Beef, beans, tomatoes, fried potato chips & guacamole",
-          image: "assets/dishes/salad_nachos.png"
+          image: "assets/dishes/salad_nachos.webp"
         },
         {
           id: "fish-salad",
           name: "Fish Salad",
           price: 15000,
           subtitle: "Sangara fish, lettuce, olives & dressing",
-          image: "assets/dishes/salad_fish.png"
+          image: "assets/dishes/salad_fish.webp"
         }
       ]
     },
@@ -381,35 +381,35 @@ window.NANASI_MENU = {
       priceHeader: "TSH",
       itemHeader: "ITEM",
       accent: "orange",
-      bannerImage: "assets/dishes/standalone_masala_chips.png",
+      bannerImage: "assets/dishes/standalone_masala_chips.webp",
       items: [
         {
           id: "quarter-chicken-portion",
           name: "1/4 Chicken Portion",
           price: 5000,
           subtitle: "Fried 1/4 chicken (no grill) 1/4 — crispy golden quarter with fries & lemon",
-          image: "assets/dishes/standalone_chicken_quarter.png"
+          image: "assets/dishes/standalone_chicken_quarter.webp"
         },
         {
           id: "masala-chips",
           name: "Masala Chips",
           price: 6000,
           subtitle: "Crispy golden chips tossed in aromatic masala spice & fresh herbs",
-          image: "assets/dishes/standalone_masala_chips.png"
+          image: "assets/dishes/standalone_masala_chips.webp"
         },
         {
           id: "chips-portion",
           name: "Chips Portion",
           price: 4000,
           subtitle: "Crispy golden hand-cut fries served with house dipping sauce",
-          image: "assets/dishes/standalone_chips_portion.png"
+          image: "assets/dishes/standalone_chips_portion.webp"
         },
         {
           id: "mash-potato",
           name: "Mash Potato",
           price: 4000,
           subtitle: "Smooth, velvety buttery mashed potatoes with herbs & melting butter",
-          image: "assets/dishes/standalone_mash_potato.png"
+          image: "assets/dishes/standalone_mash_potato.webp"
         }
       ]
     },
@@ -420,42 +420,42 @@ window.NANASI_MENU = {
       priceHeader: "TSH",
       itemHeader: "ITEM",
       accent: "red",
-      bannerImage: "assets/dishes/pizza_mixed_meat.png",
+      bannerImage: "assets/dishes/pizza_mixed_meat.webp",
       items: [
         {
           id: "margherita-pizza",
           name: "Margherita Pizza",
           price: 17000,
           subtitle: "Tomato sauce, mozzarella cheese, fresh tomato slices & aromatic basil herbs",
-          image: "assets/dishes/pizza_margherita.png"
+          image: "assets/dishes/pizza_margherita.webp"
         },
         {
           id: "bbq-chicken-pizza",
           name: "BBQ Chicken Pizza",
           price: 17000,
           subtitle: "Grilled chicken, BBQ sauce, mozzarella, red onion & pizza seasoning",
-          image: "assets/dishes/pizza_bbq_chicken.png"
+          image: "assets/dishes/pizza_bbq_chicken.webp"
         },
         {
           id: "beef-pizza",
           name: "Beef Pizza",
           price: 17000,
           subtitle: "Tender seasoned beef cuts, tomato sauce, stretchy mozzarella & Italian herbs",
-          image: "assets/dishes/pizza_beef.png"
+          image: "assets/dishes/pizza_beef.webp"
         },
         {
           id: "bbq-sausage-pizza",
           name: "BBQ Sausage Pizza",
           price: 17000,
           subtitle: "Sliced sausages, savory BBQ glaze, mozzarella cheese & scallions",
-          image: "assets/dishes/pizza_bbq_sausage.png"
+          image: "assets/dishes/pizza_bbq_sausage.webp"
         },
         {
           id: "mixed-meat-pizza",
           name: "Mixed Meat Pizza",
           price: 20000,
           subtitle: "Triple feast: minced beef, chicken, savory sausage & golden mozzarella",
-          image: "assets/dishes/pizza_mixed_meat.png"
+          image: "assets/dishes/pizza_mixed_meat.webp"
         }
       ]
     },
@@ -466,14 +466,14 @@ window.NANASI_MENU = {
       priceHeader: "TSH",
       itemHeader: "ITEM",
       accent: "yellow",
-      bannerImage: "assets/dishes/pasta_shire_clean.png",
+      bannerImage: "assets/dishes/pasta_shire_clean.webp",
       items: [
         {
           id: "shire-pasta",
           name: "Shire Pasta",
           price: 15000,
           subtitle: "Spaghetti, bell pepper, meats (beef/chicken)",
-          image: "assets/dishes/pasta_shire_clean.png"
+          image: "assets/dishes/pasta_shire_clean.webp"
         }
       ]
     },
@@ -484,63 +484,63 @@ window.NANASI_MENU = {
       priceHeader: "TSH",
       itemHeader: "Cakes Per Slice",
       accent: "green",
-      bannerImage: "assets/dishes/dessert_chocolate_cake.png?v=8",
+      bannerImage: "assets/dishes/dessert_chocolate_cake.webp?v=8",
       items: [
         {
           id: "marble-cake",
           name: "Marble",
           price: 6000,
           subtitle: "Rich vanilla and chocolate swirled sponge slice",
-          image: "assets/dishes/dessert_marble_cake.png?v=8"
+          image: "assets/dishes/dessert_marble_cake.webp?v=8"
         },
         {
           id: "lemon-cake",
           name: "Lemon Cake",
           price: 6000,
           subtitle: "Zesty glazed lemon sponge cake slice",
-          image: "assets/dishes/dessert_lemon_cake.png?v=8"
+          image: "assets/dishes/dessert_lemon_cake.webp?v=8"
         },
         {
           id: "nutella-waffles",
           name: "Nutella Waffles",
           price: 6000,
           subtitle: "Warm golden waffles drizzled with rich Nutella",
-          image: "assets/dishes/dessert_nutella_waffles.png?v=8"
+          image: "assets/dishes/dessert_nutella_waffles.webp?v=8"
         },
         {
           id: "chocolate-cake",
           name: "Chocolate Cake",
           price: 8000,
           subtitle: "Decadent layered dark chocolate fudge cake",
-          image: "assets/dishes/dessert_chocolate_cake.png?v=8"
+          image: "assets/dishes/dessert_chocolate_cake.webp?v=8"
         },
         {
           id: "carrot-walnut-cake",
           name: "Carrot Walnut Cake",
           price: 8000,
           subtitle: "Spiced carrot cake studded with roasted walnuts",
-          image: "assets/dishes/dessert_carrot_walnut_cake.png?v=8"
+          image: "assets/dishes/dessert_carrot_walnut_cake.webp?v=8"
         },
         {
           id: "red-velvet-cakes",
           name: "Red Velvet Cakes",
           price: 8000,
           subtitle: "Classic crimson cocoa layer cake with cream frosting",
-          image: "assets/dishes/dessert_red_velvet_cake.png?v=8"
+          image: "assets/dishes/dessert_red_velvet_cake.webp?v=8"
         },
         {
           id: "lemon-cheesecake-mousse",
           name: "Lemon Cheesecake Mousse Cake",
           price: 12000,
           subtitle: "Velvety lemon curd & cream cheese mousse slice",
-          image: "assets/dishes/dessert_lemon_cheesecake_mousse.png?v=8"
+          image: "assets/dishes/dessert_lemon_cheesecake_mousse.webp?v=8"
         },
         {
           id: "raspberry-strawberry-mousse",
           name: "Raspberry/Strawberry Mousse Cake",
           price: 12000,
           subtitle: "Light berry mousse layered over delicate sponge",
-          image: "assets/dishes/dessert_raspberry_strawberry_mousse.png?v=8"
+          image: "assets/dishes/dessert_raspberry_strawberry_mousse.webp?v=8"
         }
       ]
     },
@@ -551,70 +551,70 @@ window.NANASI_MENU = {
       priceHeader: "TSH",
       itemHeader: "ITEM",
       accent: "orange",
-      bannerImage: "assets/dishes/tea_dawa.png",
+      bannerImage: "assets/dishes/tea_dawa.webp",
       items: [
         {
           id: "black-tea",
           name: "Black Tea",
           price: 4000,
           subtitle: "Aromatic East African pure black tea",
-          image: "assets/dishes/tea_black.png"
+          image: "assets/dishes/tea_black.webp"
         },
         {
           id: "lemongrass-tea",
           name: "Lemongrass Tea",
           price: 4000,
           subtitle: "Fragrant fresh lemongrass (mchaichai) infusion",
-          image: "assets/dishes/tea_lemongrass.png"
+          image: "assets/dishes/tea_lemongrass.webp"
         },
         {
           id: "ginger-tea",
           name: "Ginger Tea",
           price: 4000,
           subtitle: "Warming spiced ginger tea (chai ya tangawizi)",
-          image: "assets/dishes/tea_ginger.png"
+          image: "assets/dishes/tea_ginger.webp"
         },
         {
           id: "hibiscus-tea",
           name: "Hibiscus Tea",
           price: 4000,
           subtitle: "Ruby-red botanical hibiscus (rozela) infusion",
-          image: "assets/dishes/tea_hibiscus.png"
+          image: "assets/dishes/tea_hibiscus.webp"
         },
         {
           id: "ginger-lemon-tea-dawa",
           name: "Ginger Lemon Tea (Dawa)",
           price: 5000,
           subtitle: "Fresh crushed ginger, squeezed lemon & pure honey",
-          image: "assets/dishes/tea_dawa.png"
+          image: "assets/dishes/tea_dawa.webp"
         },
         {
           id: "hot-milk",
           name: "Hot Milk",
           price: 5000,
           subtitle: "Steaming farm-fresh whole milk",
-          image: "assets/dishes/tea_hot_milk.png"
+          image: "assets/dishes/tea_hot_milk.webp"
         },
         {
           id: "milk-tea",
           name: "Milk Tea",
           price: 5000,
           subtitle: "Creamy simmered East African milk chai",
-          image: "assets/dishes/tea_milk.png"
+          image: "assets/dishes/tea_milk.webp"
         },
         {
           id: "milk-masala-tea",
           name: "Milk Masala Tea",
           price: 5000,
           subtitle: "Spiced milk chai with cardamom, cinnamon & ginger",
-          image: "assets/dishes/tea_milk_masala.png"
+          image: "assets/dishes/tea_milk_masala.webp"
         },
         {
           id: "hot-chocolate",
           name: "Hot Chocolate",
           price: 5000,
           subtitle: "Rich, velvety hot cocoa with steamed milk",
-          image: "assets/dishes/tea_hot_chocolate.png"
+          image: "assets/dishes/tea_hot_chocolate.webp"
         }
       ]
     },
@@ -625,42 +625,42 @@ window.NANASI_MENU = {
       priceHeader: "TSH",
       itemHeader: "ITEM",
       accent: "yellow",
-      bannerImage: "assets/dishes/coffee_cappuccino.png",
+      bannerImage: "assets/dishes/coffee_cappuccino.webp",
       items: [
         {
           id: "cafe-latte",
           name: "Café Latte",
           price: 6000,
           subtitle: "Rich espresso with silky steamed milk & micro-foam",
-          image: "assets/dishes/coffee_latte.png"
+          image: "assets/dishes/coffee_latte.webp"
         },
         {
           id: "cappuccino",
           name: "Cappuccino",
           price: 7000,
           subtitle: "Bold espresso crowned with airy cocoa-dusted foam",
-          image: "assets/dishes/coffee_cappuccino.png"
+          image: "assets/dishes/coffee_cappuccino.webp"
         },
         {
           id: "espresso-single",
           name: "Espresso (Single)",
           price: 4500,
           subtitle: "Single shot of pure Arabica espresso",
-          image: "assets/dishes/coffee_espresso_single.png"
+          image: "assets/dishes/coffee_espresso_single.webp"
         },
         {
           id: "espresso-double",
           name: "Espresso (Double)",
           price: 6500,
           subtitle: "Double shot of rich full-bodied espresso",
-          image: "assets/dishes/coffee_espresso_double.png"
+          image: "assets/dishes/coffee_espresso_double.webp"
         },
         {
           id: "americano",
           name: "Americano",
           price: 4000,
           subtitle: "Smooth espresso lengthened with hot water",
-          image: "assets/dishes/coffee_americano.png"
+          image: "assets/dishes/coffee_americano.webp"
         }
       ]
     },
@@ -671,7 +671,7 @@ window.NANASI_MENU = {
       priceHeader: "TSH",
       itemHeader: "ITEM",
       accent: "orange",
-      bannerImage: "assets/dishes/cold_iced_cafe_latte.png",
+      bannerImage: "assets/dishes/cold_iced_cafe_latte.webp",
       items: [
         {
           id: "iced-lemon-tea",
@@ -680,7 +680,7 @@ window.NANASI_MENU = {
           price: 5000,
           subtitle: "Chilled black tea over ice with fresh lemon & mint",
           descriptors: ["Chilled black tea", "Fresh lemon slice", "Crystal ice"],
-          image: "assets/dishes/cold_iced_lemon_tea.png"
+          image: "assets/dishes/cold_iced_lemon_tea.webp"
         },
         {
           id: "cold-chocolate",
@@ -689,7 +689,7 @@ window.NANASI_MENU = {
           price: 7000,
           subtitle: "Creamy iced chocolate blended with fudge drizzle",
           descriptors: ["Creamy chocolate", "Fudge drizzle", "Served chilled"],
-          image: "assets/dishes/cold_chocolate.png"
+          image: "assets/dishes/cold_chocolate.webp"
         },
         {
           id: "iced-cafe-latte",
@@ -698,7 +698,7 @@ window.NANASI_MENU = {
           price: 7000,
           subtitle: "Double espresso poured over cold milk and ice",
           descriptors: ["Double espresso", "Cold fresh milk", "Layered on ice"],
-          image: "assets/dishes/cold_iced_cafe_latte.png"
+          image: "assets/dishes/cold_iced_cafe_latte.webp"
         },
         {
           id: "iced-americano",
@@ -707,7 +707,7 @@ window.NANASI_MENU = {
           price: 7000,
           subtitle: "Refreshing chilled espresso over crystal ice",
           descriptors: ["Chilled espresso", "Roasted beans", "Crystal ice cubes"],
-          image: "assets/dishes/cold_iced_americano.png"
+          image: "assets/dishes/cold_iced_americano.webp"
         },
         {
           id: "sodas",
@@ -716,7 +716,7 @@ window.NANASI_MENU = {
           price: 2000,
           subtitle: "Chilled assorted soft drinks",
           descriptors: ["Assorted sodas", "Crisp & bubbly", "Served ice cold"],
-          image: "assets/dishes/cold_sodas.png"
+          image: "assets/dishes/cold_sodas.webp"
         },
         {
           id: "water",
@@ -725,7 +725,7 @@ window.NANASI_MENU = {
           price: 1000,
           subtitle: "Chilled bottled mineral water",
           descriptors: ["Pure mineral water", "Crisp & clean", "Served on ice"],
-          image: "assets/dishes/cold_water.png"
+          image: "assets/dishes/cold_water.webp"
         }
       ]
     },
@@ -736,56 +736,56 @@ window.NANASI_MENU = {
       priceHeader: "TSH",
       itemHeader: "ITEM",
       accent: "yellow",
-      bannerImage: "assets/dishes/juice_mango.png",
+      bannerImage: "assets/dishes/juice_mango.webp",
       items: [
         {
           id: "mango-juice",
           name: "Mango",
           price: 5000,
           subtitle: "100% pure ripe tropical mango juice",
-          image: "assets/dishes/juice_mango.png"
+          image: "assets/dishes/juice_mango.webp"
         },
         {
           id: "watermelon-juice",
           name: "Watermelon",
           price: 5000,
           subtitle: "Chilled hydrating ruby watermelon juice",
-          image: "assets/dishes/juice_watermelon.png"
+          image: "assets/dishes/juice_watermelon.webp"
         },
         {
           id: "passion-juice",
           name: "Passion",
           price: 5000,
           subtitle: "Tangy, aromatic fresh passion fruit juice",
-          image: "assets/dishes/juice_passion.png"
+          image: "assets/dishes/juice_passion.webp"
         },
         {
           id: "avocado-juice",
           name: "Avocado",
           price: 5000,
           subtitle: "Smooth, creamy blended fresh avocado juice",
-          image: "assets/dishes/juice_avocado.png"
+          image: "assets/dishes/juice_avocado.webp"
         },
         {
           id: "pineapple-juice",
           name: "Pineapple",
           price: 5000,
           subtitle: "Sweet golden pressed pineapple (Nanasi) juice",
-          image: "assets/dishes/juice_pineapple.png"
+          image: "assets/dishes/juice_pineapple.webp"
         },
         {
           id: "mixed-juice",
           name: "Mixed Juice",
           price: 5000,
           subtitle: "Tropical blend of mango, pineapple, passion & watermelon",
-          image: "assets/dishes/juice_mixed.png"
+          image: "assets/dishes/juice_mixed.webp"
         },
         {
           id: "sugarcane-juice",
           name: "Sugarcane",
           price: 6000,
           subtitle: "Freshly pressed sugarcane juice with ginger & lime",
-          image: "assets/dishes/juice_sugarcane.png"
+          image: "assets/dishes/juice_sugarcane.webp"
         }
       ]
     },
@@ -797,14 +797,14 @@ window.NANASI_MENU = {
       priceHeader: "TSH",
       itemHeader: "ITEM",
       accent: "red",
-      bannerImage: "assets/dishes/milkshake_oreo.png",
+      bannerImage: "assets/dishes/milkshake_oreo.webp",
       items: [
         {
           id: "vanilla-milkshake",
           name: "Vanilla",
           price: 10000,
           subtitle: "Creamy Madagascar vanilla bean ice cream shake",
-          image: "assets/dishes/milkshake_vanilla.png",
+          image: "assets/dishes/milkshake_vanilla.webp",
           color: "#FFD166"
         },
         {
@@ -812,7 +812,7 @@ window.NANASI_MENU = {
           name: "Chocolate",
           price: 10000,
           subtitle: "Rich chocolate ice cream shake with fudge swirls",
-          image: "assets/dishes/milkshake_chocolate.png",
+          image: "assets/dishes/milkshake_chocolate.webp",
           color: "#D48B55"
         },
         {
@@ -820,7 +820,7 @@ window.NANASI_MENU = {
           name: "Strawberry",
           price: 10000,
           subtitle: "Sweet strawberry ice cream & real berry shake",
-          image: "assets/dishes/milkshake_strawberry.png",
+          image: "assets/dishes/milkshake_strawberry.webp",
           color: "#FF5E7E"
         },
         {
@@ -828,7 +828,7 @@ window.NANASI_MENU = {
           name: "Oreo",
           price: 10000,
           subtitle: "Crushed Oreo cookies spun with vanilla ice cream & fudge",
-          image: "assets/dishes/milkshake_oreo.png",
+          image: "assets/dishes/milkshake_oreo.webp",
           color: "#FFFFFF"
         },
         {
@@ -836,7 +836,7 @@ window.NANASI_MENU = {
           name: "Banana & Nuts",
           price: 10000,
           subtitle: "Sweet ripe banana & roasted nuts milkshake",
-          image: "assets/dishes/milkshake_banana_nuts.png",
+          image: "assets/dishes/milkshake_banana_nuts.webp",
           color: "#FFE066"
         },
         {
@@ -844,7 +844,7 @@ window.NANASI_MENU = {
           name: "Caramel",
           price: 10000,
           subtitle: "Golden salted-caramel spun ice cream shake",
-          image: "assets/dishes/milkshake_caramel.png",
+          image: "assets/dishes/milkshake_caramel.webp",
           color: "#FFA737"
         }
       ]
@@ -857,35 +857,35 @@ window.NANASI_MENU = {
       priceHeader: "TZS",
       itemHeader: "ITEM",
       accent: "orange",
-      bannerImage: "assets/dishes/smoothie_showcase_banner.jpg",
+      bannerImage: "assets/dishes/smoothie_showcase_banner.webp",
       items: [
         {
           id: "mango-smoothie",
           name: "Mango Smoothie",
           price: 10000,
           subtitle: "Thick golden mango & creamy yogurt smoothie",
-          image: "assets/dishes/smoothie_mango.png"
+          image: "assets/dishes/smoothie_mango.webp"
         },
         {
           id: "banana-smoothie",
           name: "Banana Smoothie",
           price: 10000,
           subtitle: "Velvety banana, yogurt & honey smoothie",
-          image: "assets/dishes/smoothie_banana.png"
+          image: "assets/dishes/smoothie_banana.webp"
         },
         {
           id: "avocado-smoothie",
           name: "Avocado Smoothie",
           price: 10000,
           subtitle: "Creamy Hass avocado & yogurt smoothie",
-          image: "assets/dishes/smoothie_avocado.png"
+          image: "assets/dishes/smoothie_avocado.webp"
         },
         {
           id: "mixed-smoothie",
           name: "Mixed Smoothie",
           price: 12000,
           subtitle: "Signature multi-fruit tropical smoothie blend",
-          image: "assets/dishes/smoothie_mixed.png"
+          image: "assets/dishes/smoothie_mixed.webp"
         }
       ]
     }
